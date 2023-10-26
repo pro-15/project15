@@ -47,7 +47,6 @@ if(isset($_SESSION['doctor_id'])){
             <div class="ps-lg-1">
               <div class="d-flex align-items-center justify-content-between">
                 <p class="mb-0 font-weight-medium me-3 buy-now-text">You have 20 appointments today!</p>
-                <a href="https://www.bootstrapdash.com/product/plus-admin-template/?utm_source=organic&utm_medium=banner&utm_campaign=buynow_demo" target="_blank" class="btn me-2 buy-now-btn border-0">Get Pro</a>
               </div>
             </div>
             <div class="d-flex align-items-center justify-content-between">

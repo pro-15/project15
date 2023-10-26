@@ -5,7 +5,7 @@
 
 if(session_destroy()){
 
-    header('Location: /projectbca21016/doctor/login/login.php');
+    header('Location: '.BASE_URL.'/doctor/login/login.php');
 }
  
 
