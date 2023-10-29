@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 26, 2023 at 02:16 PM
+-- Generation Time: Oct 29, 2023 at 03:50 PM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -424,7 +424,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `user`
@@ -434,7 +434,8 @@ INSERT INTO `user` (`id`, `name`, `gender`, `age`, `email`, `phone`, `password`)
 (1, 'Abhishek', 'M', 45, 'abhi@gmail.com', '1234567891', '12345678'),
 (8, 'Ajith k s', 'M', 46, 'ajith12@gmail.com', '1234567891', '12345678'),
 (9, 'Ajith k s', 'M', 34, 'ajith123456@gmail.com', '1234567891', '12345678'),
-(10, 'Yaseen', 'F', 20, 'yasee@gmail.com', '2134567890', '12345678');
+(10, 'Yaseen', 'F', 20, 'yasee@gmail.com', '2134567890', '12345678'),
+(11, 'Johan Liebert', 'M', 23, 'jl@mon.str', '9999999999', '123');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
