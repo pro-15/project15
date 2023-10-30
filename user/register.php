@@ -89,7 +89,7 @@
 			);
 			if ($dao->insert($data, 'user')) $msg = "Registered Successfully";
 			else $msg = "insertion failed";
-			echo "<p style=color:green;>New User created successfully</p>";
+			echo "<p style='color:green;'>$msg</p>";
 		}
 	}
 
@@ -118,12 +118,12 @@
 									<span class="valErr"><?= $validator->error('name'); ?></span>
 								</div>
 								<div class="form-group">
-									<select name="gender" type="text" class="form-control form-control-lg" placeholder="Gender">
-										<option>Select Gender</option>
+									<select name="gender" class="form-control form-control-lg">
+										<option selected disabled>Gender</option>
 										<option value="M">Male</option>
 										<option value="F">Female</option>
 									</select>
-									<span class="valErr"><?= $validator->error('gender'); ?></span>
+									<!-- <span class="valErr"><?= $validator->error('gender'); ?></span> -->
 								</div>
 								<div class="form-group">
 									<input type="number" class="form-control form-control-lg" id="exampleInputEmail1" name="age" placeholder="Age">
