@@ -54,7 +54,7 @@
 							<h6 class="font-weight-light">Sign in to continue.</h6>
 							<form method="POST" class="pt-3">
 								<div class="form-group">
-									<input type="email" name='email' class="form-control form-control-lg" placeholder="Username">
+									<input type="email" name='email' class="form-control form-control-lg" placeholder="Email">
 								</div>
 								<div class="form-group">
 									<input type="password" name='password' class="form-control form-control-lg" placeholder="Password">
