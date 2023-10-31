@@ -8,7 +8,7 @@ require 'phpmailer/src/SMTP.php';
 require 'phpmailer/src/Exception.php';
 
 $mail = new PHPMailer(true);
-$emailBody = file_get_contents('user/dashboards/temp.php?bid=99');
+$emailBody = file_get_contents('../pat/temp.php?bid=99');
 try {
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';  // Your SMTP server
