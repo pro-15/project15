@@ -1,9 +1,9 @@
 <?php 
-require('../../config/autoload.php');
+require('../config/autoload.php');
 $a=$_SESSION['user_id'];
 if(!isset($a)){
 
-  header('Location: /projectbca21016/user/login.php'); 
+  header('Location: /project15/user/login.php'); 
 }
 $dao=new DataAccess();
 
@@ -11,7 +11,7 @@ $dao=new DataAccess();
   $fields2=array('id','status','doctor_id','appo_date','appo_time','slot');
   $bookstat=$dao->getDataJoin($fields2,'booking','id='.$_GET['bid'].' AND user_id='.$_SESSION['user_id']);
   if(empty($bookstat))
-  header('Location: /projectbca21016/403.html'); 
+  header('Location: /project15/403.html'); 
 
  
     else{

@@ -1,4 +1,4 @@
-<?php include('../../config/autoload.php'); ?>
+<?php include('../config/autoload.php'); ?>
 
 <html>
 <head>

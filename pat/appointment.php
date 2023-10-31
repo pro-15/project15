@@ -1,8 +1,8 @@
 <<?php
-require('../../config/autoload.php');
+require('../config/autoload.php');
 $a=$_SESSION['user_id'];
 if(!isset($a))
-header('Location: /projectbca21016/user/login.php');
+header('Location: /project15/user/login.php');
 echo $_SESSION['user_id'];
 $dao=new DataAccess();
 if(isset($a)){
@@ -13,7 +13,7 @@ if(isset($a)){
   if(!empty($bookstat)){
     if($bookstat[0]['status']=='paymentpending'){
 
-      header('Location: /projectbca21016/user/payment/pendingpayment.php'); 
+      header('Location: /project15/pat/payment/pendingpayment.php'); 
     }
   }
 }
@@ -114,7 +114,7 @@ $data=array(
       $info2=$dao->getDataJoin($fields3,'booking','user_id='.$a.' ORDER BY id DESC LIMIT 1');
       $_SESSION['booking_id']=$info2[0]['id'];
       $book_id=$_SESSION['booking_id'];
-      echo "<script>location.replace('/projectbca21016/user/payment/pay.php');</script>";
+      echo "<script>location.replace('/project15/user/payment/pay.php');</script>";
       
 
     }

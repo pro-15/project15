@@ -1,10 +1,10 @@
-<?php require('../../config/autoload.php'); ?>
+<?php require('../config/autoload.php'); ?>
 
 <?php
 $dao=new DataAccess();
 $a=$_SESSION['user_id'];
 if(!isset($a)){
-    header('Location: /projectbca21016/user/login.php');
+    header('Location: /project15/user/login.php');
   
 }
 $fields5=array('id','status');
@@ -12,7 +12,7 @@ $bookstat1=$dao->getDataJoin($fields5,'booking','user_id='.$a.' LIMIT 1');
    
     if($bookstat1[0]['status']=='paymentpending'){
 
-      header('Location: /projectbca21016/user/payment/pendingpayment.php'); 
+      header('Location: /project15/user/payment/pendingpayment.php'); 
     }
     else{
         $fields2=array('id','doctor_id','booked_datetime','appo_date','appo_time','slot','status');

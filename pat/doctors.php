@@ -1,4 +1,4 @@
-<?php require('../../config/autoload.php'); 
+<?php require('../config/autoload.php'); 
 $dao=new DataAccess();
 if(isset($_SESSION['user_id'])){
   $a=$_SESSION['user_id'];
@@ -9,7 +9,7 @@ if(isset($_SESSION['user_id'])){
   if(!empty($bookstat)){
     if($bookstat[0]['status']=='paymentpending'){
 
-      header('Location: /projectbca21016/user/payment/pendingpayment.php'); 
+      header('Location: /project15/user/payment/pendingpayment.php'); 
     }
   }
 }
@@ -56,7 +56,7 @@ include("header.php");
       $id=$row['id'];
        echo "<div class=col-lg-6 mt-4 mt-lg-0>
        <div class=member d-flex align-items-start>
-         <div class=pic><img src=/projectbca21016/doctorimage/$img class=img-fluid alt=></div>
+         <div class=pic><img src=/project15/doctorimage/$img class=img-fluid alt=></div>
          <div class=member-info>
            <h4>$name</h4>
            <span>$dept</span>

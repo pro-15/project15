@@ -1,11 +1,11 @@
 
-<?php require('../../config/autoload.php'); 
+<?php require('../config/autoload.php'); 
 
 
 
 if(session_destroy()){
 
-    header('Location: /projectbca21016/user/login.php');
+    header('Location: /project15/user/login.php');
 }
  
 
