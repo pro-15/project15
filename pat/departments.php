@@ -53,7 +53,7 @@ catch (ArrayOffsetException $e) {
 <?php include('header.php'); ?>
 
     
-<section id="services" class="services">
+<section id="departments" class="services">
       <div class="container">
 
         <div class="section-title mt-5">
