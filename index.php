@@ -65,7 +65,7 @@
 				<ul>
 					<li><a class="nav-link scrollto active" href="#hero">Home</a></li>
 					<li><a class="nav-link scrollto" href="#about">About</a></li>
-					<li><a class="nav-link scrollto" href="#services">Services</a></li>
+					<!-- <li><a class="nav-link scrollto" href="#services">Services</a></li> -->
 					<li><a class="nav-link scrollto" href="pat/departments.php">Departments</a></li>
 					<li><a class="nav-link scrollto" href="#doctors">Doctors</a></li>
 					<!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
@@ -274,7 +274,7 @@
 		</section><!-- End Counts Section -->
 
 		<!-- ======= Services Section ======= -->
-		<section id="services" class="services">
+		<!-- <section id="services" class="services">
 			<div class="container">
 
 				<div class="section-title">
@@ -336,7 +336,8 @@
 				</div>
 
 			</div>
-		</section><!-- End Services Section -->
+		</section>-->
+		<!-- End Services Section -->
 
 		<!-- ======= Appointment Section ======= -->
 		<!-- <section id="appointment" class="appointment section-bg">
@@ -610,7 +611,7 @@
 		</section><!-- End Doctors Section -->
 
 		<!-- ======= Frequently Asked Questions Section ======= -->
-		<section id="faq" class="faq section-bg">
+		<!-- <section id="faq" class="faq section-bg">
 			<div class="container">
 
 				<div class="section-title">
@@ -682,7 +683,8 @@
 				</div>
 
 			</div>
-		</section><!-- End Frequently Asked Questions Section -->
+		</section> -->
+		<!-- End Frequently Asked Questions Section -->
 
 		<!-- ======= Testimonials Section ======= -->
 		<section id="testimonials" class="testimonials">
