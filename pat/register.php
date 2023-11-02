@@ -86,7 +86,7 @@ if (isset($_POST['home'])) {
 <head>
 	<meta charset="utf-8">
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
-	<title>Login Page - OneCare</title>
+	<title>Register Page - OneCare</title>
 	<meta content="" name="description">
 	<meta content="" name="keywords">
 	<!-- Favicons -->
@@ -130,11 +130,13 @@ if (isset($_POST['home'])) {
 	</script>
 </head>
 
-<body class="bg-secondary">
+<body class="bg-success">
 	<section id='register' class='register justify-content-between align-items-center'>
 		<div class="container pt-4 pb-5 px-5 col-lg-4 mx-auto bg-light rounded">
 			<div class="section-title pb-3">
-				<img src="assets/img/logo_rmbg.png" width="150px" height="auto">
+				<a href="../index.php">
+					<img src="assets/img/logo_rmbg.png" width="150px" height="auto">
+				</a>
 				<h4>New here?</h4>
 				<h6 class="font-weight-light">Signing up is easy. It only takes a few steps</h6>
 				<form method="POST" class="pt-3" onsubmit="return checkk()">

@@ -1,12 +1,5 @@
-
-<?php require('../config/autoload.php'); 
-
-
-
-if(session_destroy()){
-
-    header('Location: /project15/pat/login.php');
-}
- 
-
-?>
+<?php
+session_start();
+session_unset();
+session_destroy();
+header('Location: /project15/pat/login.php');

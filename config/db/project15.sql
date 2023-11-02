@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 02, 2023 at 01:27 PM
+-- Generation Time: Nov 02, 2023 at 03:50 PM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -433,8 +433,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`id`, `name`, `gender`, `age`, `email`, `phone`, `password`) VALUES
 (1, 'Abhishek', 'M', 45, 'abhi@gmail.com', '1234567890', '12345678'),
-(8, 'Ajith k s', 'M', 46, 'ajith12@gmail.com', '1234567891', '12345678'),
-(9, 'Ajith k s', 'M', 34, 'ajith123456@gmail.com', '1234567892', '12345678'),
+(8, 'Ajith k s', 'M', 46, 'ajks@mail.com', '1234567891', '12345678'),
 (10, 'Yaseen', 'F', 20, 'yasee@gmail.com', '1234567893', '12345678'),
 (12, 'Johan Liebert', 'M', 23, 'jl@mon.str', '1234567894', '123');
 COMMIT;

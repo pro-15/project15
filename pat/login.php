@@ -19,8 +19,8 @@ if (isset($_POST['login'])) {
 			$_SESSION['uname'] = $info['name'];
 			$_SESSION['settime'] = time();
 			$_SESSION['keep'] = (isset($_POST['keep']) && $_POST['keep'] === 'on') ? true : false;
-			header('Location: /project15/index.html');
-		} else echo "<script> alert('Invalid username or password');</script> ";
+			header('Location: /project15/index.php');
+		} else echo "<script> alert('Invalid username or password');</script>";
 	}
 }
 ?>
@@ -58,11 +58,13 @@ if (isset($_POST['login'])) {
   ======================================================== -->
 </head>
 
-<body class="bg-secondary">
+<body class="bg-info">
 	<section id='login' class='login justify-content-between align-items-center'>
 		<div class="container pt-4 pb-5 px-5 col-lg-4 mx-auto bg-light rounded">
 			<div class="section-title pb-3">
-				<img src="assets/img/logo_rmbg.png" width="150px" height="auto">
+				<a href="/project15/index.php">
+					<img src="assets/img/logo_rmbg.png" width="150px" height="auto">
+				</a>
 				<h4>Hello! let's get started</h4>
 				<h6 class="font-weight-light">Sign in to continue.</h6>
 			</div>
