@@ -9,7 +9,7 @@ if(isset($_SESSION['user_id'])){
   if(!empty($bookstat)){
     if($bookstat[0]['status']=='paymentpending'){
 
-      header('Location: /project15/user/payment/pendingpayment.php'); 
+      header('Location: /project15/payment/pendingpayment.php'); 
     }
   }
 }
@@ -29,11 +29,10 @@ include("header.php");
 	
 	
 ?>
-<section id="doctors" class="doctors">
+<section id="doctors" class="doctors mt-5">
       <div class="container">
 
         <div class="section-title">
-          <h2>Doctors</h2>
           <p><h2>Doctors</h2></p>
         </div>
 

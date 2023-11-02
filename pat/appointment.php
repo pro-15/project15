@@ -1,9 +1,9 @@
-<<?php
+<?php
 require('../config/autoload.php');
 $a=$_SESSION['user_id'];
 if(!isset($a))
-header('Location: /project15/user/login.php');
-echo $_SESSION['user_id'];
+header('Location: /project15/pat/login.php');
+//echo $_SESSION['user_id'];
 $dao=new DataAccess();
 if(isset($a)){
   $fields2=array('id','status');
@@ -13,7 +13,7 @@ if(isset($a)){
   if(!empty($bookstat)){
     if($bookstat[0]['status']=='paymentpending'){
 
-      header('Location: /project15/pat/payment/pendingpayment.php'); 
+      header('Location: /project15/payment/pendingpayment.php'); 
     }
   }
 }
@@ -114,7 +114,7 @@ $data=array(
       $info2=$dao->getDataJoin($fields3,'booking','user_id='.$a.' ORDER BY id DESC LIMIT 1');
       $_SESSION['booking_id']=$info2[0]['id'];
       $book_id=$_SESSION['booking_id'];
-      echo "<script>location.replace('/project15/user/payment/pay.php');</script>";
+      echo "<script>location.replace('/project15/payment/pay.php');</script>";
       
 
     }
@@ -129,22 +129,11 @@ else
 echo "Error occured";
 
 }
-
-
-
-
-
 ?>
-<html>
-
-
-
-<body>
-<section id="appointment" class="appointment section-bg">
+<section id="appointment" class="appointment section-bg mt-5">
       <div class="container">
 
         <div class="section-title">
-        <h2 style='visibility:hidden;'>gf</h2>
           <p><h2>Make an Appointment</h2></p>
         </div>
 
@@ -196,7 +185,7 @@ echo "Error occured";
               
             <div class="doctors col-xl-4 d-flex align-items-stretch">
                   <div class="member icon-box mt-4 mt-xl-0">
-                  <div class='pic'><img src=/projectbca21016/doctorimage/<?php echo $img;?> class='img-fluid' alt=></div>
+                  <div class='pic'><img src=/project15/doctorimage/<?php echo $img;?> class='img-fluid' alt=></div>
                     <h4><?php echo $name;?></h4>
                     <p><?php echo$dept;?></p>
                     <p><?php echo $q;?></p>
@@ -214,7 +203,7 @@ echo "Error occured";
                                         <!-- ttm-featured-wrapper -->
                                         <div class="ttm-featured-wrapper"> 
                                             <div class="featured-thumbnail padding_left20">
-                                                <img class="img-fluid" src="/projectbca21016/doctorimage/<?php echo $img;?>" width="370" height="380" alt="image">
+                                                <img class="img-fluid" src="/project15/doctorimage/<?php echo $img;?>" width="370" height="380" alt="image">
                                             </div> 
                                         </div><!-- ttm-featured-wrapper end--> 
                                     </div>

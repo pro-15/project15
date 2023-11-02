@@ -23,7 +23,7 @@ if(isset($_SESSION['user_id'])){
 if(!empty($bookstat)){
      if($bookstat[0]['status']=='paymentpending'){
        
-       header('Location: /project15/user/payment/pendingpayment.php'); 
+       header('Location: /project15/payment/pendingpayment.php'); 
       }
     }
   }
@@ -56,8 +56,7 @@ catch (ArrayOffsetException $e) {
 <section id="services" class="services">
       <div class="container">
 
-        <div class="section-title">
-          <h2>--</h2>
+        <div class="section-title mt-5">
           <p><h2>Departments</h2></p>
         </div>
 
@@ -65,14 +64,6 @@ catch (ArrayOffsetException $e) {
          
 
           <?php
-    
-    $actions=array(
-    'edit'=>array('label'=>'Edit','link'=>'editdepartmentimage.php','params'=>array('id'=>'id'),'attributes'=>array('class'=>'btn btn-success')),
-    
-    'delete'=>array('label'=>'Delete','link'=>'deletedept.php','params'=>array('id'=>'id'),'attributes'=>array('class'=>'btn btn-success'))
-    
-    );
-
     $config=array(
         'srno'=>true,
         'hiddenfields'=>array('id'),
@@ -91,7 +82,7 @@ catch (ArrayOffsetException $e) {
         $im=$row['image'];
         echo "<div class=col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0>
         <div class=icon-box>
-          <div ><img  class=fas src=/projectbca21016/images/$im width=150px /></div>
+          <div ><img  class=fas src=/project15/images/$im width=150px /></div>
           <h4><a href=>$name</a></h4>
           <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
           <a href=doctors.php?id=$dept class=appointment-btn scrollto><span class=d-none d-md-inline>Make an</span> View Doctors</a>

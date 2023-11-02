@@ -1,12 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Medi Care</title>
+  <title>One Care</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -43,7 +41,7 @@
 <body>
 
   <!-- ======= Top Bar ======= -->
-  <div id="topbar" class="d-flex align-items-center fixed-top">
+  <!-- <div id="topbar" class="d-flex align-items-center fixed-top">
     <div class="container d-flex justify-content-between">
       <div class="contact-info d-flex align-items-center">
         <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">contact@example.com</a>
@@ -56,7 +54,7 @@
         <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">

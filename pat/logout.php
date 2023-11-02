@@ -5,7 +5,7 @@
 
 if(session_destroy()){
 
-    header('Location: /project15/user/login.php');
+    header('Location: /project15/pat/login.php');
 }
  
 
