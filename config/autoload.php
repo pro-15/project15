@@ -11,7 +11,7 @@ date_default_timezone_set('asia/kolkata');
 session_start();
 if(isset($_SESSION['settime'])) {
     if(isset($_SESSION['doc']) && $_SESSION['doc'] == true){
-        if($_SESSION['settime']-time() > 43200) {
+        if(time() - $_SESSION['settime'] > 43200) {
             echo "<script> alert('Session Expired!'); </script>";
             echo "location.replace('" . BASE_URL . "/doctor/logout.php'); </script>";
         }
@@ -19,8 +19,8 @@ if(isset($_SESSION['settime'])) {
     else {
         if(isset($_SESSION['keep']) && $_SESSION['keep'] == true) $kep = true;
         else $kep = false;
-        $tme = $_SESSION['settime'] - time();
-        if(($kep == true && $tme > 43200) || ($kep == false && $tme > 1296000)) {
+        $tme = time() - $_SESSION['settime'];
+        if(($kep == true && $tme > 1296000) || ($kep == false && $tme > 3600)) {
             echo "<script> alert('Session Expired!'); </script>";
             echo "location.replace('" . BASE_URL . "/pat/logout.php'); </script>";
         }

@@ -19,7 +19,7 @@ if (isset($_POST['login'])) {
 			$_SESSION['uname'] = $info['name'];
 			$_SESSION['settime'] = time();
 			$_SESSION['keep'] = (isset($_POST['keep']) && $_POST['keep'] === 'on') ? true : false;
-			header('Location: /project15/index.php');
+			header('Location: /project15/index.html');
 		} else echo "<script> alert('Invalid username or password');</script>";
 	}
 }
