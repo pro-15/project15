@@ -1,8 +1,6 @@
 <?php
 require('../config/autoload.php');
-$a=$_SESSION['user_id'];
-if(!isset($a))
-header('Location: /project15/pat/login.php');
+if(!isset($_SESSION['user_id'])) header('Location: /project15/pat/login.php');
 //echo $_SESSION['user_id'];
 $dao=new DataAccess();
 if(isset($a)){
@@ -254,7 +252,7 @@ echo "Error occured";
           <div class="col-lg-3">
             <ul class="nav nav-tabs flex-column">
             <li class="nav-item">
-                <a class="nav-link" >Available date</a>
+                Available date
               </li>
               <?php 
               

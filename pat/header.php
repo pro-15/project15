@@ -68,7 +68,6 @@
         <ul>
           <li><a class="nav-link scrollto" href="../index.html#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="../index.html#about">About</a></li>
-          <li><a class="nav-link scrollto" href="../index.html#services">Services</a></li>
           <li><a class="nav-link scrollto" href="departments">Departments</a></li>
           <li><a class="nav-link scrollto" href="../index.html#doctors">Doctors</a></li>
           <li><a class="nav-link scrollto" href="../index.html#contact">Contact</a></li>
@@ -84,6 +83,7 @@ echo "
             
             <li><a >Profile</a></li>
             <li><a >Wallet</a></li>
+            <li><a href='./mybooking.php'>My bookings</a></li>
             <li><a href=\"logout.php\">Logout</a></li>
             </ul>
             </li>
@@ -92,8 +92,9 @@ echo "
               ?>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-
+<!-- 
       <a href="./mybooking.php" class="appointment-btn scrollto"><span class="d-none d-md-inline">My</span> Bookings</a>
+       -->
       <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>

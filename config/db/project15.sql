@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 02, 2023 at 03:50 PM
+-- Generation Time: Nov 03, 2023 at 10:33 AM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -24,35 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admission`
---
-
-DROP TABLE IF EXISTS `admission`;
-CREATE TABLE IF NOT EXISTS `admission` (
-  `regno` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL,
-  `age` int NOT NULL,
-  `course` char(10) NOT NULL,
-  `address` varchar(60) NOT NULL,
-  `phone` char(10) NOT NULL,
-  PRIMARY KEY (`regno`)
-) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `admission`
---
-
-INSERT INTO `admission` (`regno`, `name`, `age`, `course`, `address`, `phone`) VALUES
-(22, 'Fareed', 21, 'BCA', 'Fareed Bhavan,edappally', '5678'),
-(21, 'Aswin', 30, 'BBA', 'angamaly,ekm', '678998'),
-(20, 'Abhishek', 20, 'bca', 'ekm,kerala', '456'),
-(18, 'Thomson', 40, 'bcom', 'parashala,tvm', '4556'),
-(16, 'Abhidev', 19, 'bca', 'add2,add22', '342'),
-(15, 'Ajith', 12, 'bca', 'ad1,ad2', '123');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `booking`
 --
 
@@ -68,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `booking` (
   `slot` varchar(15) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=104 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=106 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `booking`
@@ -102,32 +73,9 @@ INSERT INTO `booking` (`id`, `doctor_id`, `user_id`, `booked_datetime`, `appo_da
 (98, 1, 1, '2023-10-24 14:55:59', '2023-10-24', '08:00', 'consulted', 'm'),
 (99, 1, 1, '2023-10-24 15:04:46', '2023-10-24', '08:15', 'consulted', 'm'),
 (102, 1, 10, '2023-10-25 21:44:24', '2023-10-26', '08:00', 'cancelled', 'm'),
-(103, 1, 10, '2023-10-25 21:47:55', '2023-10-26', '08:00', 'consulted', 'm');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `category`
---
-
-DROP TABLE IF EXISTS `category`;
-CREATE TABLE IF NOT EXISTS `category` (
-  `cid` int NOT NULL AUTO_INCREMENT,
-  `cname` varchar(50) NOT NULL,
-  PRIMARY KEY (`cid`),
-  UNIQUE KEY `cname` (`cname`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `category`
---
-
-INSERT INTO `category` (`cid`, `cname`) VALUES
-(1, 'TV'),
-(2, 'Smart Phone'),
-(3, 'Washing machine'),
-(4, 'Electronics'),
-(5, 'Kitchen');
+(103, 1, 10, '2023-10-25 21:47:55', '2023-10-26', '08:00', 'consulted', 'm'),
+(104, 1, 1, '2023-11-02 13:55:07', '2023-11-02', '08:00', 'confirm', 'm'),
+(105, 1, 1, '2023-11-02 14:43:29', '2023-11-02', '08:15', 'confirm', 'm');
 
 -- --------------------------------------------------------
 
@@ -175,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `doctor` (
   `address` varchar(100) NOT NULL,
   `image` varchar(200) NOT NULL,
   `phone` char(10) NOT NULL,
-  `age` int NOT NULL,
+  `dob` date NOT NULL,
   `description` varchar(100) NOT NULL,
   `fee` int NOT NULL,
   `username` varchar(50) NOT NULL,
@@ -187,82 +135,9 @@ CREATE TABLE IF NOT EXISTS `doctor` (
 -- Dumping data for table `doctor`
 --
 
-INSERT INTO `doctor` (`id`, `name`, `gender`, `department`, `qualification`, `address`, `image`, `phone`, `age`, `description`, `fee`, `username`, `password`) VALUES
-(1, 'Dr Jacob Thomas E', 'se', '1', 'MBBS,Diploma & PG Diploma: D.C.H., Diploma in Newborn care, PG Diploma in Child Health', 'Ernakulam Kerala', 'e541f62abc7068517bb62d928a89cd5a_432df691efbe.jpg', '1234567812', 56, 'Has 8 years of Experience post MD, with training in Paediatric Gastroenterology, Hepatology and Nutr', 300, 'jacob', '12345678'),
-(5, 'demo dfgdgdhdhdh', 'se', '1', 'MBBS,PG: M.D. Pediatrics, Master of Surgery in Pediatrics.', 'TEST', 'doctors-1.jpg', '9400673512', 23, '', 0, '', '');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `emp`
---
-
-DROP TABLE IF EXISTS `emp`;
-CREATE TABLE IF NOT EXISTS `emp` (
-  `empid` int NOT NULL AUTO_INCREMENT,
-  `ename` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `eage` int NOT NULL,
-  PRIMARY KEY (`empid`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `emp`
---
-
-INSERT INTO `emp` (`empid`, `ename`, `eage`) VALUES
-(1, 'ajith', 56);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `employee`
---
-
-DROP TABLE IF EXISTS `employee`;
-CREATE TABLE IF NOT EXISTS `employee` (
-  `eid` int NOT NULL AUTO_INCREMENT,
-  `ename` varchar(50) NOT NULL,
-  `eage` int NOT NULL,
-  `ephone` char(10) NOT NULL,
-  `eimage` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  PRIMARY KEY (`eid`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `employee`
---
-
-INSERT INTO `employee` (`eid`, `ename`, `eage`, `ephone`, `eimage`) VALUES
-(1, 'ABHIDEV V S', 19, '1234567814', '7dfee2970f4bf46d0e8165c42a4dc7b9_d22fbf3fa7dfc70954.jpeg'),
-(2, 'Ajith', 20, '1234567815', 'ae308afbe57f7ec39f670e9f7bfc160b_3fcdd507de57bfe91f.jpg'),
-(3, 'Thomson', 20, '1234567815', 'e1d50c0eb806407f5e18fe7e35ecdab1_0508e8d59274bc26.jpg'),
-(4, 'Thomsonn', 19, '1234567815', '88136ef9b8b5e03e2ab3ab4e32e0c0c0_c9d9a82da08ae7dabfd.png');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `item`
---
-
-DROP TABLE IF EXISTS `item`;
-CREATE TABLE IF NOT EXISTS `item` (
-  `itemid` int NOT NULL AUTO_INCREMENT,
-  `itemname` varchar(50) NOT NULL,
-  `itemprice` decimal(10,2) NOT NULL,
-  `cid` int NOT NULL,
-  PRIMARY KEY (`itemid`),
-  UNIQUE KEY `itemname` (`itemname`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `item`
---
-
-INSERT INTO `item` (`itemid`, `itemname`, `itemprice`, `cid`) VALUES
-(1, 'Redmi Eight Pro', '18999.00', 2),
-(3, 'Redmi Nine Pro', '19999.00', 2),
-(4, 'Redmi Ten Pro', '22000.00', 2),
-(6, 'Usb cable', '100.00', 4);
+INSERT INTO `doctor` (`id`, `name`, `gender`, `department`, `qualification`, `address`, `image`, `phone`, `dob`, `description`, `fee`, `username`, `password`) VALUES
+(1, 'Dr Jacob Thomas E', 'se', '1', 'MBBS,Diploma & PG Diploma: D.C.H., Diploma in Newborn care, PG Diploma in Child Health', 'Ernakulam Kerala', 'e541f62abc7068517bb62d928a89cd5a_432df691efbe.jpg', '1234567812', '1984-11-08', 'Has 8 years of Experience post MD, with training in Paediatric Gastroenterology, Hepatology and Nutr', 300, 'jacob', '12345678'),
+(5, 'demo dfgdgdhdhdh', 'se', '1', 'MBBS,PG: M.D. Pediatrics, Master of Surgery in Pediatrics.', 'TEST', 'doctors-1.jpg', '9400673512', '1993-11-24', '', 0, '', '');
 
 -- --------------------------------------------------------
 
@@ -277,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `payment` (
   `amount` int NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `booking_id` (`booking_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `payment`
@@ -311,7 +186,9 @@ INSERT INTO `payment` (`id`, `booking_id`, `amount`) VALUES
 (33, 100, 300),
 (34, 101, 300),
 (35, 102, 300),
-(36, 103, 300);
+(36, 103, 300),
+(37, 104, 300),
+(38, 105, 300);
 
 -- --------------------------------------------------------
 
@@ -364,7 +241,7 @@ CREATE TABLE IF NOT EXISTS `schedule` (
   `doctor_id` int NOT NULL,
   `date` date NOT NULL,
   PRIMARY KEY (`sid`)
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `schedule`
@@ -381,31 +258,10 @@ INSERT INTO `schedule` (`sid`, `m_start`, `m_end`, `e_start`, `e_end`, `doctor_i
 (14, '8:00', '11:00', '3:00', '6:00', 1, '2023-10-25'),
 (15, '8:00', '11:00', '3:00', '6:00', 1, '2023-10-25'),
 (16, '8:00', '10:30', '4:00', '7:00', 1, '2023-10-26'),
-(17, '8:00', '11:00', '4:00', '7:00', 1, '2023-10-27');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `student`
---
-
-DROP TABLE IF EXISTS `student`;
-CREATE TABLE IF NOT EXISTS `student` (
-  `sid` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `age` int NOT NULL,
-  `phone` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  PRIMARY KEY (`sid`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `student`
---
-
-INSERT INTO `student` (`sid`, `name`, `age`, `phone`) VALUES
-(1, 'Ajith', 56, '34343'),
-(2, 'Abhidev', 19, '8289'),
-(3, 'Ajith', 45, '1234567891');
+(17, '8:00', '11:00', '4:00', '7:00', 1, '2023-10-27'),
+(18, '6:00', '8:00', '3:00', '6:00', 1, '2023-11-01'),
+(19, '8:00', '12:00', '3:00', '6:00', 1, '2023-11-02'),
+(20, '8:00', '9:00', '3:00', '4:00', 1, '2023-11-03');
 
 -- --------------------------------------------------------
 
@@ -423,19 +279,21 @@ CREATE TABLE IF NOT EXISTS `user` (
   `phone` char(10) NOT NULL,
   `password` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`),
-  UNIQUE KEY `phone` (`phone`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  UNIQUE KEY `email` (`email`)
+) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `name`, `gender`, `age`, `email`, `phone`, `password`) VALUES
-(1, 'Abhishek', 'M', 45, 'abhi@gmail.com', '1234567890', '12345678'),
-(8, 'Ajith k s', 'M', 46, 'ajks@mail.com', '1234567891', '12345678'),
-(10, 'Yaseen', 'F', 20, 'yasee@gmail.com', '1234567893', '12345678'),
-(12, 'Johan Liebert', 'M', 23, 'jl@mon.str', '1234567894', '123');
+(1, 'Abhishek', 'M', 45, 'abhi@gmail.com', '1234567891', '12345678'),
+(8, 'Ajith k s', 'M', 46, 'ajith12@gmail.com', '1234567891', '12345678'),
+(9, 'Ajith k s', 'M', 34, 'ajith123456@gmail.com', '1234567891', '12345678'),
+(10, 'Yaseen', 'F', 20, 'yasee@gmail.com', '2134567890', '12345678'),
+(16, 'Jewel', 'M', 19, 'kjjewelkj@gmail.com', '1234567890', '97661'),
+(18, 'Aswin', 'M', 12, 'aswinrajeev@depaul.edu.in', '1234567890', '17486'),
+(19, 'Abhidev', 'M', 20, 'vsabhidev12@gmail.com', '1234567890', '12345678');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

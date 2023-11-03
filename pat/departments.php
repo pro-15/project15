@@ -80,12 +80,12 @@ catch (ArrayOffsetException $e) {
       $dept=$row['id'];
         $name=$row['name'];
         $im=$row['image'];
-        echo "<div class=col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0>
-        <div class=icon-box>
-          <div ><img  class=fas src=/project15/images/$im width=150px /></div>
-          <h4><a href=>$name</a></h4>
+        echo "<div class='col-lg-4 col-md-6 d-flex align-items-stretch my-2'>
+        <div class='icon-box'>
+          <div ><img  class='fas' src='/project15/images/$im' width='150px' /></div>
+          <h4>$name</h4>
           <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-          <a href=doctors.php?id=$dept class=appointment-btn scrollto><span class=d-none d-md-inline>Make an</span> View Doctors</a>
+          <a href='doctors.php?id=$dept' class='appointment-btn scrollto'><span class='d-none d-md-inline'>Make an</span> View Doctors</a>
         </div>
       </div>";
         }
