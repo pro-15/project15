@@ -1,6 +1,7 @@
-<?php require("header.php"); ?>
+<?php require('header.php'); ?>
 
 <h1 class="h3 mb-3"><strong>Analytics</strong> Dashboard</h1>
+
 <div class="row">
 	<div class="col-xl-6 col-xxl-5 d-flex">
 		<div class="w-100">
@@ -61,7 +62,7 @@
 									</div>
 								</div>
 							</div>
-							<h1 class="mt-1 mb-3">$21.300</h1>
+							<h1 class="mt-1 mb-3">₹21.300</h1>
 							<div class="mb-0">
 								<span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 6.65% </span>
 								<span class="text-muted">Since last week</span>
@@ -175,6 +176,7 @@
 	<div class="col-12 col-lg-8 col-xxl-9 d-flex">
 		<div class="card flex-fill">
 			<div class="card-header">
+
 				<h5 class="card-title mb-0">Latest Projects</h5>
 			</div>
 			<table class="table table-hover my-0">
@@ -262,5 +264,4 @@
 		</div>
 	</div>
 </div>
-
-<?php require('footer.php'); ?>
+<?php include("footer.php"); ?>
