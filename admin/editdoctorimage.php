@@ -40,7 +40,7 @@ $rules = array(
 	"gender" => array(
 		"required" => true,
 		"minlength" => 1,
-		"maxlength" => 6,
+		"maxlength" => 1,
 		"alphaonly" => true
 	),
 	"department" => array(
@@ -61,7 +61,7 @@ $rules = array(
 		"maxlength" => 50,
 		"alphaspaceonly" => true
 	),
-	"image" => array("filerequired" => true),
+	"image" => array(),
 	"phone" => array(
 		"required" => true,
 		"minlength" => 10,
@@ -104,34 +104,29 @@ if (isset($_POST["btn_update"])) {
 		}
 		$data = array(
 			'name' => $_POST['name'],
-			'gender' => $_POST['gender'],
 			'department' => $_POST['department'],
 			'qualification' => $_POST['qualification'],
 			'address' => $_POST['address'],
-			'image' => $fileName,
 			'phone' => $_POST['phone'],
 			'dob' => $_POST['dob'],
 			'description' => $_POST['description'],
 			'fee' => $_POST['fee'],
 		);
 		$condition = 'id=' . $_GET['id'];
-		if (isset($flag)) {
+		if (isset($flag))
 			$data['image'] = $fileName;
-		}
+		if (isset($_POST['gender']) && $_POST['gender'] != 'selected')
+			$data['gender'] = $_POST['gender'];
+			
 		if ($dao->update($data, 'doctor', $condition)) {
 			$msg = "Successfullly Updated";
 		} else {
 			$msg = "Failed";
 		}
-		echo '<span style="color:green;"><?php echo $msg; ?></span>';
+		echo "<span style='color:green;'>$msg</span>";
 	}
 }
 ?>
-<style>
-	.form {
-		border: 3px solid blue;
-	}
-</style>
 <h1 class="mb-3"><strong>Patients</strong></h1>
 <div class="row">
 	<div class="col-lg-6">

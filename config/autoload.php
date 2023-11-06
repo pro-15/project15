@@ -9,6 +9,8 @@ define("BASE_PATH","c:wamp64/www/project15/");
 date_default_timezone_set('asia/kolkata');
 
 session_start();
+
+//  Logout timer
 if(isset($_SESSION['settime'])) {
     if(isset($_SESSION['doc']) && $_SESSION['doc'] == true){
         if(time() - $_SESSION['settime'] > 43200) {
@@ -22,7 +24,7 @@ if(isset($_SESSION['settime'])) {
         $tme = time() - $_SESSION['settime'];
         if(($kep == true && $tme > 1296000) || ($kep == false && $tme > 3600)) {
             echo "<script> alert('Session Expired!'); </script>";
-            echo "location.replace('" . BASE_URL . "/pat/logout.php'); </script>";
+            echo "<script>location.replace('" . BASE_URL . "/pat/logout.php'); </script>";
         }
     }
 }

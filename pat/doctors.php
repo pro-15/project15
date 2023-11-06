@@ -41,7 +41,7 @@ include("header.php");
       $fields=array('id','name','department','qualification','image');
     $info=$dao->getDataJoin($fields,'doctor','department='.$_GET['id']);
     $fields2=array('id','name');
-    $depname=$dao->getDataJoin($fields2,'department',1);
+    $depname=$dao->getDataJoin($fields2,'department','id = '.$_GET['id']);
     $departmentname=array();
     foreach ($depname as $depid=>$depnamee){
       $departmentname+=$depnamee;

@@ -14,29 +14,29 @@ include('header.php');
                 <table class="table table-bordered table-hover mt-0 mb-3 ms-3 me-5">
                     <thead>
                         <tr>
-                            <th>Department Id</th>
-                            <th>Department Name</th>
+                            <th>#</th>
+                            <th width="*">Department Name</th>
                             <th>Image</th>
-                            <th>EDIT/DELETE</th>
+                            <th width="200px">Edit</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         $actions = array(
                             'edit' => array(
-                                'label' => 'Edit',
+                                'label' => '<i class="align-middle" data-feather="edit"></i>',
                                 'link' => 'editdepartmentimage.php',
                                 'params' => array('id' => 'id'),
                                 'attributes' => array(
-                                    'class' => 'btn btn-success'
+                                    'class' => 'btn btn-warning'
                                 )
                             ),
                             'delete' => array(
-                                'label' => 'Delete',
+                                'label' => '<i class="align-middle" data-feather="trash-2"></i>',
                                 'link' => 'deletedept.php',
                                 'params' => array('id' => 'id'),
                                 'attributes' => array(
-                                    'class' => 'btn btn-success'
+                                    'class' => 'btn btn-danger'
                                 )
                             )
                         );
