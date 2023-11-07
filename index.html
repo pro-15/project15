@@ -47,12 +47,12 @@
 		function fetchUserInfo() {
 			// Make an AJAX request to get_user_info.php
 			const xhr = new XMLHttpRequest();
-			xhr.open('GET', 'getusr.php', true);
+			xhr.open('GET', 'getinfo.php', true);
 
 			xhr.onload = function () {
 				if (xhr.status === 200) {
 					const response = JSON.parse(xhr.responseText);
-					if (response != false) {
+					if (response.username != false) {
 						const info = document.getElementById('user-info');
 						info.innerHTML = `${response.username}`;
 						const menu = document.getElementById('fill');
@@ -60,6 +60,14 @@
 						const logn = document.getElementById('logn');
 						logn.style.display = 'none';
 					}
+					var count = document.getElementById('doc');
+					count.setAttribute("data-purecounter-end", response.doc);
+					count = document.getElementById('dep');
+					count.setAttribute("data-purecounter-end", response.dep);
+					count = document.getElementById('pat');
+					count.setAttribute("data-purecounter-end", response.pat);
+					count = document.getElementById('vis');
+					count.setAttribute("data-purecounter-end", response.vis);
 				} else {
 					console.error('Error fetching user info:', xhr.statusText);
 				}
@@ -290,12 +298,12 @@
 		<section id="counts" class="counts">
 			<div class="container">
 
-				<div class="row">
+				<div class="row justify-content-around">
 
 					<div class="col-lg-3 col-md-6">
 						<div class="count-box">
 							<i class="fas fa-user-md"></i>
-							<span data-purecounter-start="0" data-purecounter-end="85" data-purecounter-duration="1"
+							<span id="doc" data-purecounter-start="0" data-purecounter-end="85" data-purecounter-duration="1"
 								class="purecounter"></span>
 							<p>Doctors</p>
 						</div>
@@ -304,7 +312,7 @@
 					<div class="col-lg-3 col-md-6 mt-5 mt-md-0">
 						<div class="count-box">
 							<i class="far fa-hospital"></i>
-							<span data-purecounter-start="0" data-purecounter-end="18" data-purecounter-duration="1"
+							<span id="dep" data-purecounter-start="0" data-purecounter-end="18" data-purecounter-duration="1"
 								class="purecounter"></span>
 							<p>Departments</p>
 						</div>
@@ -312,19 +320,19 @@
 
 					<div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
 						<div class="count-box">
-							<i class="fas fa-flask"></i>
-							<span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1"
+							<i class="fas fa-user"></i>
+							<span id="pat" data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1"
 								class="purecounter"></span>
-							<p>Research Labs</p>
+							<p>Patients</p>
 						</div>
 					</div>
 
 					<div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
 						<div class="count-box">
-							<i class="fas fa-award"></i>
-							<span data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="1"
+							<i class="fas fa-address-book"></i>
+							<span id="vis" data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="1"
 								class="purecounter"></span>
-							<p>Awards</p>
+							<p>Consultations</p>
 						</div>
 					</div>
 
@@ -351,16 +359,16 @@
 					<div class="col-lg-3">
 						<ul class="nav nav-tabs flex-column">
 							<li class="nav-item">
-								<a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Cardiology</a>
+								<a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Pediatrics</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" data-bs-toggle="tab" href="#tab-2">Neurology</a>
+								<a class="nav-link" data-bs-toggle="tab" href="#tab-2">Cardiology</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" data-bs-toggle="tab" href="#tab-3">Hepatology</a>
+								<a class="nav-link" data-bs-toggle="tab" href="#tab-3">Neurology</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" data-bs-toggle="tab" href="#tab-4">Pediatrics</a>
+								<a class="nav-link" data-bs-toggle="tab" href="#tab-4">Hepatology</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" data-bs-toggle="tab" href="#tab-5">Eye Care</a>
@@ -370,6 +378,26 @@
 					<div class="col-lg-9">
 						<div class="tab-content">
 							<div class="tab-pane active show" id="tab-1">
+								<div class="row gy-4">
+									<div class="col-lg-8 details order-2 order-lg-1">
+										<h3>Fuga dolores inventore laboriosam ut est accusamus laboriosam dolore</h3>
+										<p class="fst-italic">Totam aperiam accusamus. Repellat consequuntur iure
+											voluptas iure
+											porro quis
+											delectus</p>
+										<p>Eaque consequuntur consequuntur libero expedita in voluptas. Nostrum ipsam
+											necessitatibus aliquam
+											fugiat debitis quis velit. Eum ex maxime error in consequatur corporis
+											atque. Eligendi
+											asperiores
+											sed qui veritatis aperiam quia a laborum inventore</p>
+									</div>
+									<div class="col-lg-4 text-center order-1 order-lg-2">
+										<img src="pat/assets/img/departments-1.jpg" alt="" class="img-fluid">
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane " id="tab-2">
 								<div class="row gy-4">
 									<div class="col-lg-8 details order-2 order-lg-1">
 										<h3>Cardiology</h3>
@@ -387,11 +415,11 @@
 											vero</p>
 									</div>
 									<div class="col-lg-4 text-center order-1 order-lg-2">
-										<img src="pat/assets/img/departments-1.jpg" alt="" class="img-fluid">
+										<img src="pat/assets/img/departments-2.jpg" alt="" class="img-fluid">
 									</div>
 								</div>
 							</div>
-							<div class="tab-pane" id="tab-2">
+							<div class="tab-pane" id="tab-3">
 								<div class="row gy-4">
 									<div class="col-lg-8 details order-2 order-lg-1">
 										<h3>Et blanditiis nemo veritatis excepturi</h3>
@@ -408,11 +436,11 @@
 											beatae accusamus lerode pakto madirna desera vafle de nideran pal</p>
 									</div>
 									<div class="col-lg-4 text-center order-1 order-lg-2">
-										<img src="pat/assets/img/departments-2.jpg" alt="" class="img-fluid">
+										<img src="pat/assets/img/departments-3.jpg" alt="" class="img-fluid">
 									</div>
 								</div>
 							</div>
-							<div class="tab-pane" id="tab-3">
+							<div class="tab-pane" id="tab-4">
 								<div class="row gy-4">
 									<div class="col-lg-8 details order-2 order-lg-1">
 										<h3>Impedit facilis occaecati odio neque aperiam sit</h3>
@@ -427,26 +455,6 @@
 											laboriosam a iste
 											odio. Earum
 											odit nesciunt fugiat sit ullam. Soluta et harum voluptatem optio quae</p>
-									</div>
-									<div class="col-lg-4 text-center order-1 order-lg-2">
-										<img src="pat/assets/img/departments-3.jpg" alt="" class="img-fluid">
-									</div>
-								</div>
-							</div>
-							<div class="tab-pane" id="tab-4">
-								<div class="row gy-4">
-									<div class="col-lg-8 details order-2 order-lg-1">
-										<h3>Fuga dolores inventore laboriosam ut est accusamus laboriosam dolore</h3>
-										<p class="fst-italic">Totam aperiam accusamus. Repellat consequuntur iure
-											voluptas iure
-											porro quis
-											delectus</p>
-										<p>Eaque consequuntur consequuntur libero expedita in voluptas. Nostrum ipsam
-											necessitatibus aliquam
-											fugiat debitis quis velit. Eum ex maxime error in consequatur corporis
-											atque. Eligendi
-											asperiores
-											sed qui veritatis aperiam quia a laborum inventore</p>
 									</div>
 									<div class="col-lg-4 text-center order-1 order-lg-2">
 										<img src="pat/assets/img/departments-4.jpg" alt="" class="img-fluid">
@@ -497,11 +505,11 @@
 
 					<div class="col-lg-6">
 						<div class="member d-flex align-items-start">
-							<div class="pic"><img src="pat/assets/img/doctors/doctors-1.jpg" class="img-fluid" alt="">
+							<div class="pic"><img src="doctorimage/e541f62abc7068517bb62d928a89cd5a_432df691efbe.jpg" class="img-fluid" alt="">
 							</div>
 							<div class="member-info">
-								<h4>Walter White</h4>
-								<span>Chief Medical Officer</span>
+								<h4>Jacob Thomas</h4>
+								<span>Pediatrics</span>
 								<p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
 								<div class="social">
 									<a href=""><i class="ri-twitter-fill"></i></a>
@@ -515,11 +523,11 @@
 
 					<div class="col-lg-6 mt-4 mt-lg-0">
 						<div class="member d-flex align-items-start">
-							<div class="pic"><img src="pat/assets/img/doctors/doctors-2.jpg" class="img-fluid" alt="">
+							<div class="pic"><img src="doctorimage/doctors-1.jpg" class="img-fluid" alt="">
 							</div>
 							<div class="member-info">
-								<h4>Sarah Jhonson</h4>
-								<span>Anesthesiologist</span>
+								<h4>Gregory House</h4>
+								<span>Pediatrics</span>
 								<p>Aut maiores voluptates amet et quis praesentium qui senda para</p>
 								<div class="social">
 									<a href=""><i class="ri-twitter-fill"></i></a>
@@ -533,11 +541,11 @@
 
 					<div class="col-lg-6 mt-4">
 						<div class="member d-flex align-items-start">
-							<div class="pic"><img src="pat/assets/img/doctors/doctors-3.jpg" class="img-fluid" alt="">
+							<div class="pic"><img src="doctorimage/75153e8ba73a3707f25d09bf08a8f37b_5bd729544bff39661a.jpg" class="img-fluid" alt="">
 							</div>
 							<div class="member-info">
-								<h4>William Anderson</h4>
-								<span>Cardiology</span>
+								<h4>Nandini Iyer</h4>
+								<span>Orthopedics</span>
 								<p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
 								<div class="social">
 									<a href=""><i class="ri-twitter-fill"></i></a>
@@ -551,11 +559,11 @@
 
 					<div class="col-lg-6 mt-4">
 						<div class="member d-flex align-items-start">
-							<div class="pic"><img src="pat/assets/img/doctors/doctors-4.jpg" class="img-fluid" alt="">
+							<div class="pic"><img src="doctorimage/4b233cdb0a14ebf0170a7bf28ca55c8d_af80417d079f36f559d2.jpg" class="img-fluid" alt="">
 							</div>
 							<div class="member-info">
-								<h4>Amanda Jepson</h4>
-								<span>Neurosurgeon</span>
+								<h4>Aparna Gupta</h4>
+								<span>Orthopedics</span>
 								<p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
 								<div class="social">
 									<a href=""><i class="ri-twitter-fill"></i></a>
@@ -573,7 +581,7 @@
 		</section><!-- End Doctors Section -->
 
 		<!-- ======= Testimonials Section ======= -->
-		<section id="testimonials" class="testimonials">
+		<!-- <section id="testimonials" class="testimonials">
 			<div class="container">
 
 				<div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
@@ -596,7 +604,7 @@
 									</p>
 								</div>
 							</div>
-						</div><!-- End testimonial item -->
+						</div>
 
 						<div class="swiper-slide">
 							<div class="testimonial-wrap">
@@ -615,7 +623,7 @@
 									</p>
 								</div>
 							</div>
-						</div><!-- End testimonial item -->
+						</div>
 
 						<div class="swiper-slide">
 							<div class="testimonial-wrap">
@@ -633,7 +641,7 @@
 									</p>
 								</div>
 							</div>
-						</div><!-- End testimonial item -->
+						</div>
 
 						<div class="swiper-slide">
 							<div class="testimonial-wrap">
@@ -653,7 +661,7 @@
 									</p>
 								</div>
 							</div>
-						</div><!-- End testimonial item -->
+						</div>
 
 						<div class="swiper-slide">
 							<div class="testimonial-wrap">
@@ -674,14 +682,15 @@
 									</p>
 								</div>
 							</div>
-						</div><!-- End testimonial item -->
+						</div>
 
 					</div>
 					<div class="swiper-pagination"></div>
 				</div>
 
 			</div>
-		</section><!-- End Testimonials Section -->
+		</section> -->
+		<!-- End Testimonials Section -->
 
 		<!-- ======= Gallery Section ======= -->
 		<section id="gallery" class="gallery">
@@ -801,7 +810,7 @@
 									<i class="bi bi-geo-alt"></i>
 								</a>
 								<h4>Location:</h4>
-								<p>A108 Adam Street, New York, NY 535022</p>
+								<p>De Paul Nagar, Angamaly 683573, Kerala</p>
 							</div>
 
 							<div class="email">
@@ -872,10 +881,12 @@
 					<div class="col-lg-3 col-md-6 footer-contact">
 						<h3>OneCare</h3>
 						<p>
-							A108 Adam Street <br>
-							New York, NY 535022<br>
-							United States <br><br>
-							<strong>Phone:</strong> <a class="link-dark" href="tel:5589548855">+91 55895 48855</a><br>
+							De Paul Nagar<br>
+							Angamaly 683573<br>
+							Kerala<br>
+							<br>
+							<strong>Phone:</strong> <a class="link-dark" href="tel:5589548855">+91 55895 48855</a>
+							<br>
 							<strong>Email:</strong> <a class="link-dark"
 								href="mailto:info@example.com">info@example.com</a><br>
 						</p>
