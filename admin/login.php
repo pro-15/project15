@@ -3,12 +3,11 @@ session_start();
 if (isset($_POST['login'])) {
    if (isset($_POST['username']) && isset($_POST['password'])) {
       if ($_POST['username'] == "Username" && $_POST['password'] == "Password") {
+         $_SESSION['admin'] = true;
          header("location: /project15/admin/index.php");
-      }
-      else $flag = false;
+      } else $flag = true;
       // array_push();
-   }
-   else $flag = false;
+   } else $flag = true;
 }
 ?>
 <!DOCTYPE html>
@@ -39,12 +38,23 @@ if (isset($_POST['login'])) {
                   <div class="text-center mt-4">
                      <h1 class="h2">Welcome back!</h1>
                      <p class="lead">
-                        Sign in to your account to continue
+                        Sign in to continue
                      </p>
                   </div>
 
                   <div class="card">
                      <div class="card-body">
+
+                     <?php
+                     if (isset($flag) && $flag) {
+                           echo '<div class="col-8 mx-auto">
+                              <div class="border border-danger rounded rounded-3 p-2 text-center text-danger">
+                                    Invalid Username or Password
+                              </div>
+                           </div>';
+                     }
+                     ?>
+
                         <div class="m-sm-3">
                            <form action="" method="POST">
                               <div class="mb-3">

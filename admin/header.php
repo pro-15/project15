@@ -1,3 +1,11 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+	// Start the session if it's not already started
+	session_start();
+}
+if (!(isset($_SESSION['admin']) && $_SESSION['admin'] == true))
+	header("location: /project15/admin/login.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +22,25 @@
 	<title>Admin</title>
 	<link href="css/app.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+	<script>
+	document.addEventListener("DOMContentLoaded", function() {
+		var currentPage = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
+		var sidebarItems = document.querySelectorAll(".sidebar-item");
+
+		for (var i = 0; i < sidebarItems.length; i++) {
+			var item = sidebarItems[i];
+			var link = item.querySelector(".sidebar-link");
+			var href = link.getAttribute("href");
+
+			if (href == currentPage) {
+				item.classList.add("active");
+				break;
+			}
+		}
+	});
+</script>
+
 </head>
 
 <body>
@@ -29,22 +56,32 @@
 						Pages
 					</li>
 
-					<li class="sidebar-item active">
+					<li class="sidebar-item">
 						<a class="sidebar-link" href="dashboard.php">
-							<i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
+							<i class="align-middle" data-feather="layers"></i> <span class="align-middle">Dashboard</span>
 						</a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="#">
-							<i class=" align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
+						<a class="sidebar-link" href="doctor.php">
+							<i class="align-middle" data-feather="users"></i> <span class="align-middle">Doctors</span>
 						</a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="#">
-							<i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Sign In</span>
+						<a class="sidebar-link" href="department.php">
+							<i class="align-middle" data-feather="grid"></i> <span class="align-middle">Department</span>
 						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="users.php">
+							<i class=" align-middle" data-feather="user"></i> <span class="align-middle">Patients</span>
+						</a>
+					</li>
+
+					<li class="sidebar-header">
+						Tools
 					</li>
 
 					<li class="sidebar-item">
@@ -55,23 +92,7 @@
 
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="idpass.php">
-							<i class="align-middle" data-feather="book"></i> <span class="align-middle">Issue id and password</span>
-						</a>
-					</li>
-
-					<li class="sidebar-header">
-						Tools
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="/project15/admin/viewdoctor.php">
-							<i class="align-middle" data-feather="square"></i> <span class="align-middle">View Doctors</span>
-						</a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="/project15/admin/viewdepartment.php">
-							<i class="align-middle" data-feather="check-square"></i> <span class="align-middle">View Department</span>
+							<i class="align-middle" data-feather="book"></i> <span class="align-middle">Issue ID</span>
 						</a>
 					</li>
 
@@ -87,27 +108,6 @@
 						</a>
 					</li>
 
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="icons-feather.html">
-							<i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Icons</span>
-						</a>
-					</li>
-
-					<li class="sidebar-header">
-						Plugins & Addons
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="charts-chartjs.html">
-							<i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">Charts</span>
-						</a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="maps-google.html">
-							<i class="align-middle" data-feather="map"></i> <span class="align-middle">Maps</span>
-						</a>
-					</li>
 				</ul>
 
 
@@ -268,7 +268,7 @@
 								<a class="dropdown-item" href="index.html"><i class="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>
 								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Help Center</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">Log out</a>
+								<a class="dropdown-item" href="logout.php">Log out</a>
 							</div>
 						</li>
 					</ul>

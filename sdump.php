@@ -1,8 +1,8 @@
 <?php
 session_start();
 echo "<title>SESSION DUMP</title>";
+echo var_dump($_SESSION);
 if (isset($_SESSION['settime'])) {
-    echo var_dump($_SESSION);
     if (isset($_SESSION['doc']) && $_SESSION['doc'] == true) {
         $tm_out = 43200;
     } else {
@@ -14,4 +14,4 @@ if (isset($_SESSION['settime'])) {
     echo "<br>Timeout = ". $tm_out;
     echo "<br>Time elapsed = ". $tm_elap;
     echo "<br>Time left = ". $tm_left;
-} else echo "Session not set";
+}
