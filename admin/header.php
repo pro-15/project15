@@ -57,7 +57,7 @@ if (!(isset($_SESSION['admin']) && $_SESSION['admin'] == true))
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="dashboard.php">
+						<a class="sidebar-link" href="index.php">
 							<i class="align-middle" data-feather="layers"></i> <span class="align-middle">Dashboard</span>
 						</a>
 					</li>
@@ -87,12 +87,6 @@ if (!(isset($_SESSION['admin']) && $_SESSION['admin'] == true))
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="viewbooking.php">
 							<i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Bookings</span>
-						</a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="idpass.php">
-							<i class="align-middle" data-feather="book"></i> <span class="align-middle">Issue ID</span>
 						</a>
 					</li>
 

@@ -251,19 +251,30 @@
             <div class="container-fluid p-0">
 
 
-
-               <button id="myBtn">Open Modal</button>
+               <a href="index.php?id=3" class="btn-del btn btn-info">Open Modal</a>
+               <a href="index.php?id=2" class="btn-del btn btn-info">Open Modal</a>
 
                <!-- The Modal -->
-               <div id="myModal" class="modal">
+               <div id="model-del" class="modal">
 
                   <!-- Modal content -->
-                  <div class="modal-content">
-                     <span class="close">&times;</span>
-                     <p>Some text in the Modal..</p>
+                  <div class="modal-content overflow-hidden col-2 rounded-3">
+                     <div class="text-center">
+                        <p>Are you sure you want to delete this?</p>
+                     </div>
+                     <div class="row">
+                        <div class="col text-center">
+                           <button id="btn-confirm" class="btn btn-danger btn-sm">Delete</button>
+                        </div>
+                        <div class="col text-center">
+                           <button id="btn-cancel" class="btn btn-secondary btn-sm">Cancel</button>
+                        </div>
+                     </div>
                   </div>
 
                </div>
+
+
 
             </div>
          </main>
@@ -302,32 +313,40 @@
 
 
    <script>
-      // Get the modal
-      var modal = document.getElementById("myModal");
+   document.addEventListener("DOMContentLoaded", function() {
+      var modal = document.getElementById("model-del");
+      var confirmButton = document.getElementById("btn-confirm");
+      var cancelButton = document.getElementById("btn-cancel");
+      var redirectUrl;
 
-      // Get the button that opens the modal
-      var btn = document.getElementById("myBtn");
+      // Add event listener to all elements with the class "btn-del"
+      var openModalButtons = document.querySelectorAll(".btn-del");
+      openModalButtons.forEach(function(button) {
+         button.onclick = function(e) {
+            e.preventDefault(); // Prevent the default behavior of the anchor tag
+            redirectUrl = button.getAttribute("href");
+            modal.style.display = "block";
+         };
+      });
 
-      // Get the <span> element that closes the modal
-      var span = document.getElementsByClassName("close")[0];
+      confirmButton.onclick = function() {
+         if (redirectUrl) {
+            window.location.href = redirectUrl;
+         }
+      };
 
-      // When the user clicks on the button, open the modal
-      btn.onclick = function() {
-         modal.style.display = "block";
-      }
-
-      // When the user clicks on <span> (x), close the modal
-      span.onclick = function() {
+      cancelButton.onclick = function() {
          modal.style.display = "none";
-      }
+      };
 
-      // When the user clicks anywhere outside of the modal, close it
       window.onclick = function(event) {
          if (event.target == modal) {
             modal.style.display = "none";
          }
-      }
-   </script>
+      };
+   });
+</script>
+
 
 </body>
 

@@ -149,8 +149,14 @@ if (isset($_POST['issue'])) {
 }
 ?>
 <h1 class="mb-3"><strong>Doctor</strong></h1>
-<div class="row">
 
+<!-- <div class="row">
+    <div class="bg-danger bg-opacity-10 border border-danger col-6 mb-4 mx-auto p-2 rounded text-center text-danger">
+        false
+    </div>
+</div> -->
+
+<div class="row">
     <div class="col-lg-8">
         <div class="card">
 
@@ -301,7 +307,7 @@ if (isset($_POST['issue'])) {
                         $actions = array(
                             'edit' => array(
                                 'label' => '<i class="align-middle" data-feather="edit"></i>',
-                                'link' => 'editdoctorimage.php',
+                                'link' => 'editdoctor.php',
                                 'params' => array('id' => 'id'),
                                 'attributes' => array(
                                     'class' => 'btn btn-warning'
@@ -312,7 +318,7 @@ if (isset($_POST['issue'])) {
                                 'link' => 'deletedoctor.php',
                                 'params' => array('id' => 'id'),
                                 'attributes' => array(
-                                    'class' => 'btn btn-danger'
+                                    'class' => 'btn-del btn btn-danger'
                                 )
                             )
                         );
@@ -338,4 +344,57 @@ if (isset($_POST['issue'])) {
         </div>
     </div>
 </div>
+
+<div id="model-del" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content overflow-hidden col-2 rounded-3">
+        <div class="text-center">
+            <p>Are you sure you want to delete this?</p>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <button id="btn-confirm" class="btn btn-danger btn-sm">Delete</button>
+            </div>
+            <div class="col text-center">
+                <button id="btn-cancel" class="btn btn-secondary btn-sm">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+   document.addEventListener("DOMContentLoaded", function() {
+      var modal = document.getElementById("model-del");
+      var confirmButton = document.getElementById("btn-confirm");
+      var cancelButton = document.getElementById("btn-cancel");
+      var redirectUrl;
+
+      // Add event listener to all elements with the class "btn-del"
+      var openModalButtons = document.querySelectorAll(".btn-del");
+      openModalButtons.forEach(function(button) {
+         button.onclick = function(e) {
+            e.preventDefault(); // Prevent the default behavior of the anchor tag
+            redirectUrl = button.getAttribute("href");
+            modal.style.display = "block";
+         };
+      });
+
+      confirmButton.onclick = function() {
+         if (redirectUrl) {
+            window.location.href = redirectUrl;
+         }
+      };
+
+      cancelButton.onclick = function() {
+         modal.style.display = "none";
+      };
+
+      window.onclick = function(event) {
+         if (event.target == modal) {
+            modal.style.display = "none";
+         }
+      };
+   });
+</script>
 <?php include("footer.php"); ?>

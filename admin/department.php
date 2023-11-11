@@ -39,9 +39,8 @@ if (isset($_POST["insert"])) {
             'name' => $_POST['name'],
             'image' => $fileName
         );
-        $condition = 'id=' . $_GET['id'];
         if (isset($flag)) $data['image'] = $fileName;
-        if ($dao->insert($data, 'department', $condition)) {
+        if ($dao->insert($data, 'department')) {
             $msg = "Successfullly Updated";
         } else $msg = "Failed";
         echo "<span style='color:green;'><?php echo '$msg'; ?></span>";
@@ -93,7 +92,7 @@ if (isset($_POST["insert"])) {
                         $actions = array(
                             'edit' => array(
                                 'label' => '<i class="align-middle" data-feather="edit"></i>',
-                                'link' => 'editdepartmentimage.php',
+                                'link' => 'editdepartment.php',
                                 'params' => array('id' => 'id'),
                                 'attributes' => array(
                                     'class' => 'btn btn-warning'
@@ -101,10 +100,10 @@ if (isset($_POST["insert"])) {
                             ),
                             'delete' => array(
                                 'label' => '<i class="align-middle" data-feather="trash-2"></i>',
-                                'link' => 'deletedept.php',
+                                'link' => 'deletedepartment.php',
                                 'params' => array('id' => 'id'),
                                 'attributes' => array(
-                                    'class' => 'btn btn-danger'
+                                    'class' => 'btn-del btn btn-danger'
                                 )
                             )
                         );
@@ -130,4 +129,59 @@ if (isset($_POST["insert"])) {
         </div>
     </div>
 </div>
+
+<div id="model-del" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content overflow-hidden col-2 rounded-3">
+        <div class="text-center">
+            <p>Are you sure you want to delete this?</p>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <button id="btn-confirm" class="btn btn-danger btn-sm">Delete</button>
+            </div>
+            <div class="col text-center">
+                <button id="btn-cancel" class="btn btn-secondary btn-sm">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+   document.addEventListener("DOMContentLoaded", function() {
+      var modal = document.getElementById("model-del");
+      var confirmButton = document.getElementById("btn-confirm");
+      var cancelButton = document.getElementById("btn-cancel");
+      var redirectUrl;
+
+      // Add event listener to all elements with the class "btn-del"
+      var openModalButtons = document.querySelectorAll(".btn-del");
+      openModalButtons.forEach(function(button) {
+         button.onclick = function(e) {
+            e.preventDefault(); // Prevent the default behavior of the anchor tag
+            redirectUrl = button.getAttribute("href");
+            modal.style.display = "block";
+         };
+      });
+
+      confirmButton.onclick = function() {
+         if (redirectUrl) {
+            window.location.href = redirectUrl;
+         }
+      };
+
+      cancelButton.onclick = function() {
+         modal.style.display = "none";
+      };
+
+      window.onclick = function(event) {
+         if (event.target == modal) {
+            modal.style.display = "none";
+         }
+      };
+   });
+</script>
+
+
 <?php include("footer.php"); ?>
