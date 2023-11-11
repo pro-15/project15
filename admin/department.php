@@ -84,7 +84,7 @@ if (isset($_POST["insert"])) {
                             <th>#</th>
                             <th width="*">Department Name</th>
                             <th>Image</th>
-                            <th width="200px">Edit</th>
+                            <th width="200px">Action</th>
                         </tr>
                     </thead>
                     <tbody>
