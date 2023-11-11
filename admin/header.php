@@ -80,27 +80,27 @@ if (!(isset($_SESSION['admin']) && $_SESSION['admin'] == true))
 						</a>
 					</li>
 
-					<li class="sidebar-header">
-						Tools
-					</li>
-
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="viewbooking.php">
+						<a class="sidebar-link" href="booking.php">
 							<i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Bookings</span>
 						</a>
 					</li>
 
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="/project15/admin/doctor.php">
-							<i class="align-middle" data-feather="grid"></i> <span class="align-middle">Add Doctors</span>
-						</a>
+					<li class="sidebar-header">
+						In progress
 					</li>
 
 					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="list"></i> <span class="align-middle">Add Patient</span>
+						</a>
+					</li>
+
+					<!-- <li class="sidebar-item">
 						<a class="sidebar-link" href="/project15/admin/department.php">
 							<i class="align-middle" data-feather="align-left"></i> <span class="align-middle">Add Department</span>
 						</a>
-					</li>
+					</li> -->
 
 				</ul>
 
