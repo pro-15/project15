@@ -15,7 +15,7 @@ if (isset($_POST['login'])) {
       $data = array('username' => $_POST['username'], 'password' => $_POST['password']);
       if ($info = $dao->login($data, 'doctor')) {
          $_SESSION['doctor_id'] = $info['id'];
-         header('location:../dashboards/bookings.php');
+         header('location: bookings.php');
       } else {
          $msg = "invalid username or password";
          echo "<script> alert('Invalid username or password');</script> ";
@@ -44,7 +44,7 @@ if (isset($_POST['login'])) {
    <!-- inject:css -->
    <!-- endinject -->
    <!-- Layout styles -->
-   <link rel="stylesheet" href="assets/css/demo_1/style.css" />
+   <link rel="stylesheet" href="assets/css/style.css" />
    <link rel="stylesheet" href="assets/css/modalrecord.css" />
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css">
 
@@ -53,31 +53,43 @@ if (isset($_POST['login'])) {
 
    <!-- End layout styles -->
    <link rel="shortcut icon" href="assets/images/favicon.png" />
+   <style>
+      body {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 100vh;
+         /* Ensure the container takes the full height of the viewport */
+         margin: 0;
+         /* Remove default margin */
+         background: url('assets/images/bg-01.jpg');
+         background-size: cover;
+      }
+
+      .round-end {
+         border-radius: 10px !important;
+      }
+   </style>
 </head>
 
-<body class="bg-dribble">
-
-
-   <div class="main-panel">
-      <div class="row">
-         <div class="col-md-6 grid-margin stretch-card">
-            <div class="card">
-               <div class="card-body">
-                  <form method="POST">
-                     <div class="form-group">
-                        <label>Username</label>
-                        <input type="text" class="form-control" placeholder="Username" />
-                     </div>
-                     <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" class="form-control" placeholder="Password" />
-                     </div>
-                     <div class="row">
-                        <button type="submit" class="btn btn-primary me-2"> Submit </button>
-                     </div>
-                  </form>
-               </div>
+<body>
+   <div class="col-4 stretch-card grid-margin">
+      <div class="card round-end">
+         <div class="card-body p-5">
+            <div class="text-center mb-5">
+               <h3 class="text-muted font-weight-bold">Doctor Login</h3>
             </div>
+            <form method="POST">
+               <div class="form-group">
+                  <label class="font-weight-bold">Username</label>
+                  <input type="text" name="username" class="form-control form-control-lg" placeholder="Username" />
+               </div>
+               <div class="form-group">
+                  <label class="font-weight-bold">Password</label>
+                  <input type="password" name="password" class="form-control form-control-lg" placeholder="Password" />
+               </div>
+               <button type="submit" name="login" class="btn btn-lg btn-blocks btn-dark form-control formcontrol-lg me-2"> Submit </button>
+            </form>
          </div>
       </div>
    </div>

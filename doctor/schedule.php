@@ -122,3 +122,6 @@ if (isset($_POST['home'])) {
 		</div>
 	</div>
 </div>
+
+
+<?php include("footer.php"); ?>

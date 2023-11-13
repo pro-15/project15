@@ -2,7 +2,7 @@
 require('../config/autoload.php');
 $dao = new DataAccess();
 if (!isset($_SESSION['doctor_id']))
-	header('location: login/login.php');
+	header('location: login.php');
 if (isset($_SESSION['doctor_id'])) {
 	$fields3 = array('name', 'image');
 	$rec = $dao->getDataJoin($fields3, 'doctor', 'id=' . $_SESSION['doctor_id']);
@@ -30,7 +30,7 @@ if (isset($_SESSION['doctor_id'])) {
 	<!-- inject:css -->
 	<!-- endinject -->
 	<!-- Layout styles -->
-	<link rel="stylesheet" href="assets/css/demo_1/style.css" />
+	<link rel="stylesheet" href="assets/css/style.css" />
 	<link rel="stylesheet" href="assets/css/modalrecord.css" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css">
 
@@ -78,7 +78,7 @@ if (isset($_SESSION['doctor_id'])) {
 					</a>
 				</li>
 				<li class="nav-item pt-3">
-					<a class="nav-link d-block" href="index.html">
+					<a class="nav-link d-block" href="index.php">
 						<!-- <img class="sidebar-brand-logo" src="assets/images/logo.svg" alt="" /> -->
 						<img class="sidebar-brand-logomini" src="assets/images/logo-mini.svg" alt="" />
 						<div class="small font-weight-light pt-1"></div>
@@ -133,7 +133,7 @@ if (isset($_SESSION['doctor_id'])) {
 						<span class="menu-title">Add Schedule</span>
 					</a>
 				</li>
-				<li class="nav-item">
+				<!-- <li class="nav-item">
 					<a class="nav-link" href="pages/charts/chartjs.html">
 						<i class="mdi mdi-chart-bar menu-icon"></i>
 						<span class="menu-title">Charts</span>
@@ -150,7 +150,7 @@ if (isset($_SESSION['doctor_id'])) {
 						<i class="mdi mdi-file-document-box menu-icon"></i>
 						<span class="menu-title">Documentation</span>
 					</a>
-				</li>
+				</li> -->
 			</ul>
 		</nav>
 		<!-- partial -->

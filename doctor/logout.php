@@ -1,12 +1,5 @@
-
-<?php require('../config/autoload.php'); 
-
-
-
-if(session_destroy()){
-
-    header('Location: '.BASE_URL.'/doctor/login/login.php');
-}
- 
-
-?>
+<?php
+session_start();
+session_unset();
+session_destroy();
+header('Location: /project15/doctor/login.php');
