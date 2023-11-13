@@ -1,7 +1,7 @@
 <?php
 require('../config/autoload.php');
 if(!isset($_SESSION['user_id'])) header('Location: /project15/pat/login.php');
-//echo $_SESSION['user_id'];
+$a = $_SESSION['user_id'];
 $dao=new DataAccess();
 if(isset($a)){
   $fields2=array('id','status');
@@ -109,7 +109,7 @@ $data=array(
     if($dao->insert($data,"booking"))
     {
       $fields3=array('id');
-      $info2=$dao->getDataJoin($fields3,'booking','user_id='.$a.' ORDER BY id DESC LIMIT 1');
+      $info2=$dao->getDataJoin($fields3,'booking','user_id='.$a.' ORDER BY id DESC');
       $_SESSION['booking_id']=$info2[0]['id'];
       $book_id=$_SESSION['booking_id'];
       echo "<script>location.replace('/project15/payment/pay.php');</script>";
