@@ -91,14 +91,14 @@ if (isset($_POST['search'])) {
 	}
 </style>
 <div class="page-header">
-	<h3 class="page-title">View Records</h3>
+	<h3 class="page-title">Search Records</h3>
 	<nav aria-label="breadcrumb">
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item">
 				Records
 			</li>
 			<li class="breadcrumb-item active">
-				View Records
+				Search Records
 			</li>
 		</ol>
 	</nav>

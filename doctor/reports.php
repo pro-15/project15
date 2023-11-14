@@ -6,7 +6,7 @@ require('dbcon.php');
 $a = $_GET['uid'];
 $info2 = $mysqli->query("SELECT
 U.name AS user_name,
-U.age AS user_age,
+U.dob AS dob,
 U.gender AS user_gender,
 U.email AS user_email,
 U.phone AS user_phone,
@@ -30,7 +30,9 @@ FROM booking B
 JOIN user U ON B.user_id = U.id
 JOIN doctor D ON B.doctor_id = D.id
 JOIN record R ON B.id = R.bid where U.id=" . $a . " and B.status='consulted' ORDER BY R.rid DESC;");
+?>
 
+<?php
 if ($info2->num_rows == 0) {
 	echo "<script>alert('No records found');</script>";
 	sleep(1);
@@ -44,7 +46,7 @@ while ($row = $info2->fetch_assoc()) {
 // $info2=$dao->getDataJoin($fields3,'user','id='.$a);
 // print_r($info);
 $name = $info[0]['user_name'];
-$age = $info[0]['user_age'];
+$dob = $info[0]['dob'];
 $g = $info[0]['user_gender'];
 $em = $info[0]['user_email'];
 $phone = $info[0]['user_phone'];
@@ -73,35 +75,48 @@ $phone = $info[0]['user_phone'];
 		padding: 10px;
 	}
 </style>
-<div class="main-panel">
-	<form method="POST">
-		<div class="content-wrapper pb-0">
-			<div class="page-header flex-wrap">
-				<div class="header-left"><a href="record.php">
-						<button class="btn btn-primary mb-2 mb-md-0 me-2"> Back</a> </button>
-					<button class="btn btn-outline-primary bg-white mb-2 mb-md-0">Records Available</button>
+<div class="page-header">
+	<h3 class="page-title">View Records</h3>
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">
+				Records
+			</li>
+			<li class="breadcrumb-item active">
+				View Records
+			</li>
+		</ol>
+	</nav>
+</div>
+<div class="row">
+	<div class="col-12 grid-margin">
+		<div class="card">
+			<div class="card-body">
+				<h4 class="card-title mb-3">Patient Records</h4>
+				<form method="POST">
+					<div class="d-flex justify-content-between px-3 row-col-12">
+						<a href="record.php" class="btn btn-primary"> Back </a>
+						<button class="btn btn-outline-primary bg-white">Records Available</button>
+						<button class="btn btn-outline-primary bg-white">Name: <?= $name ?></button>
+						<button class="btn btn-outline-primary bg-white">DOB: <?= $dob ?></button>
+						<button class="btn btn-outline-primary bg-white">Phone: <?= $phone ?></button>
+						<button class="btn btn-outline-primary bg-white">Email: <?= $em ?></button>
+					</div>
+					<div class="row-col-12">
+						<div class="accordion">
+							<?php
+							foreach ($info as $key => $book) {
+								$bid = $book['bid'];
+								$dt = $book['appo_date'];
+								$rid = $book['rid'];
+								$dname = $book['doctor_name'];
 
-					<button class="btn btn-outline-primary bg-white mb-2 mb-md-0">Name: <?= $name ?></button>
-					<button class="btn btn-outline-primary bg-white mb-2 mb-md-0">Age: <?= $age ?></button>
-					<button class="btn btn-outline-primary bg-white mb-2 mb-md-0">Phone: <?= $phone ?></button>
-					<button class="btn btn-outline-primary bg-white mb-2 mb-md-0">Email: <?= $em ?></button>
-				</div>
-			</div>
 
-
-			<div class="accordion">
-				<?php
-				foreach ($info as $key => $book) {
-					$bid = $book['bid'];
-					$dt = $book['appo_date'];
-					$rid = $book['rid'];
-					$dname = $book['doctor_name'];
-
-
-					echo "
+								echo "
   <div class=\"accordion-item\">
   <div class=\"accordion-header\"><b>RID: $rid Report On $dt - Booking ID: $bid       Consulted - $dname</b></div>
   <div class=\"accordion-content\">
+  <p>
   <b>Medical History:</b><br>$book[m_h]<br>
   <b>Medication and allergies:</b><br>$book[m_a]<br>
   <b>Recent Medical Treatment:</b><br>$book[r_mp]<br>
@@ -109,34 +124,39 @@ $phone = $info[0]['user_phone'];
   <b>Lab Results:</b><br>$book[lab_results]<br>
   <b>Summary:</b><br>$book[summary]<br>
   <b>Prescription and Treatment:</b><br>$book[p_t]<br>
-  
-  
+  </p>  
   </div>
   </div>";
-				}
-
-				?>
-			</div>
-
-
-			<script>
-				document.addEventListener("DOMContentLoaded", function() {
-					const accordionItems = document.querySelectorAll(".accordion-item");
-
-					accordionItems.forEach(function(item) {
-						const header = item.querySelector(".accordion-header");
-						const content = item.querySelector(".accordion-content");
-
-						header.addEventListener("click", function() {
-							if (content.style.display === "block") {
-								content.style.display = "none";
-							} else {
-								content.style.display = "block";
 							}
-						});
-					});
-				});
-			</script>
+
+							?>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script>
+	document.addEventListener("DOMContentLoaded", function() {
+		const accordionItems = document.querySelectorAll(".accordion-item");
+
+		accordionItems.forEach(function(item) {
+			const header = item.querySelector(".accordion-header");
+			const content = item.querySelector(".accordion-content");
+
+			header.addEventListener("click", function() {
+				if (content.style.display === "block") {
+					content.style.display = "none";
+				} else {
+					content.style.display = "block";
+				}
+			});
+		});
+	});
+</script>
 
 
 <?php include("footer.php"); ?>
