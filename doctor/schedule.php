@@ -89,7 +89,7 @@ if (isset($_POST['home'])) {
 	<div class="col-6 grid-margin">
 		<div class="card">
 			<div class="card-body">
-				<h4 class="card-title">Morning </h4>
+				<h4 class="card-title mb-3">Morning </h4>
 				<form method="POST">
 					<div class="form-group">
 						<label>Date</label>

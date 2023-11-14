@@ -22,7 +22,6 @@ foreach ($dropss as $key => $item) {
 	];
 }
 
-
 // Convert the PHP array to a JSON string for JavaScript
 $optionsArrayJson = json_encode($optionsArray);
 
@@ -91,86 +90,97 @@ if (isset($_POST['search'])) {
 		/* Define a different color when hovering over the clear button */
 	}
 </style>
-<div class="main-panel">
-	<form method="POST">
-		<div class="content-wrapper pb-0">
-			<div class="page-header flex-wrap">
-				<div class="header-left">
-					<button class="btn btn-primary mb-2 mb-md-0 me-2"> Record </button>
-				</div>
-			</div>
-			<form method="POST">
-				<div class="header-right d-flex flex-wrap mt-2 mt-sm-0">
+<div class="page-header">
+	<h3 class="page-title">View Records</h3>
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">
+				Records
+			</li>
+			<li class="breadcrumb-item active">
+				View Records
+			</li>
+		</ol>
+	</nav>
+</div>
+<div class="row">
+	<div class="col-6 grid-margin">
+		<div class="card">
+			<div class="card-body">
+				<h4 class="card-title mb-3">Search Patient Records</h4>
+				<form method="POST">
 					<div class="custom-dropdown">
-						<label class="col-form-label"><b>Search Patient Record</b></label><br>
 						<div class="input-container">
 							<input type="text" name="user" id="customInput" placeholder="Type UID, Name, Phone" class="form-control d-inline">
 							<span class="clear-button d-inline mdi mdi-close"></span>
 						</div>
 						<ul id="customDropdown"></ul>
 					</div>
-				</div>
-				<button type="submit" class="btn btn-primary mb-2" name='search'> Find </button>
-			</form>
-			<script>
-				const customInput = document.getElementById('customInput');
-				const customDropdown = document.getElementById('customDropdown');
+					<button type="submit" class="btn btn-primary mt-2 mb-2 btn-block" name='search'> Find </button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	const customInput = document.getElementById('customInput');
+	const customDropdown = document.getElementById('customDropdown');
 
-				// Define your array of objects with options and values
-				const optionsArrayyy = <?php echo $optionsArrayJson; ?>;
-				const newData = [];
+	// Define your array of objects with options and values
+	const optionsArrayyy = <?php echo $optionsArrayJson; ?>;
+	const newData = [];
 
-				// Loop through the original data and transform it
-				optionsArrayyy.forEach(item => {
-					newData.push({
-						"option": item.option,
-						"value": item.value
-					});
-				});
-				optionsArray = newData;
-				// Function to populate the custom dropdown with options from the array
-				function populateDropdown() {
-					customDropdown.innerHTML = '';
-					optionsArray.forEach(function(item) {
-						const listItem = document.createElement('li');
-						listItem.textContent = item.option;
-						listItem.setAttribute('data-value', item.value);
+	// Loop through the original data and transform it
+	optionsArrayyy.forEach(item => {
+		newData.push({
+			"option": item.option,
+			"value": item.value
+		});
+	});
+	optionsArray = newData;
+	// Function to populate the custom dropdown with options from the array
+	function populateDropdown() {
+		customDropdown.innerHTML = '';
+		optionsArray.forEach(function(item) {
+			const listItem = document.createElement('li');
+			listItem.textContent = item.option;
+			listItem.setAttribute('data-value', item.value);
 
-						customDropdown.appendChild(listItem);
+			customDropdown.appendChild(listItem);
 
-						listItem.addEventListener('click', function() {
-							customInput.value = item.option;
-							customDropdown.style.display = 'none';
-						});
-					});
-				}
+			listItem.addEventListener('click', function() {
+				customInput.value = item.option;
+				customDropdown.style.display = 'none';
+			});
+		});
+	}
 
-				customInput.addEventListener('focus', function() {
-					customDropdown.style.display = 'none';
-					populateDropdown();
-				});
+	customInput.addEventListener('focus', function() {
+		customDropdown.style.display = 'none';
+		populateDropdown();
+	});
 
-				customInput.addEventListener('input', function() {
-					customDropdown.style.display = 'block';
-					const inputText = customInput.value.trim().toLowerCase();
+	customInput.addEventListener('input', function() {
+		customDropdown.style.display = 'block';
+		const inputText = customInput.value.trim().toLowerCase();
 
-					populateDropdown(); // Populate the dropdown with all options
+		populateDropdown(); // Populate the dropdown with all options
 
-					const filteredItems = customDropdown.querySelectorAll('li');
+		const filteredItems = customDropdown.querySelectorAll('li');
 
-					filteredItems.forEach(function(item) {
-						if (!item.textContent.toLowerCase().includes(inputText)) {
-							item.style.display = 'none';
-						} else {
-							item.style.display = 'block';
-						}
-					});
-				});
+		filteredItems.forEach(function(item) {
+			if (!item.textContent.toLowerCase().includes(inputText)) {
+				item.style.display = 'none';
+			} else {
+				item.style.display = 'block';
+			}
+		});
+	});
 
-				document.querySelector('.clear-button').addEventListener('click', function() {
-					document.querySelector('#customInput').value = '';
-				});
-			</script>
+	document.querySelector('.clear-button').addEventListener('click', function() {
+		document.querySelector('#customInput').value = '';
+	});
+</script>
 
-			
-			<?php include("footer.php"); ?>
+
+<?php include("footer.php"); ?>

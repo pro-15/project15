@@ -15,7 +15,7 @@ if (isset($_POST['login'])) {
       $data = array('username' => $_POST['username'], 'password' => $_POST['password']);
       if ($info = $dao->login($data, 'doctor')) {
          $_SESSION['doctor_id'] = $info['id'];
-         header('location: bookings.php');
+         header('location: index.php');
       } else {
          $msg = "invalid username or password";
          echo "<script> alert('Invalid username or password');</script> ";
