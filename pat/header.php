@@ -113,7 +113,7 @@
 						</ul>";
 					} else {
 						echo '<li id="logn">
-					   	<a href="/project15/pat/login.php">
+					   	<a href="login.php">
 							   Sign-In
 						   </a>
 					   </li>';
