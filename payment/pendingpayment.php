@@ -3,7 +3,7 @@ require('../config/autoload.php');
 $a=$_SESSION['user_id'];
 if(!isset($a)){
 
-  header('Location: /project15/pat/login.php'); 
+  header('Location: /project15/user/login.php'); 
 }
 $dao=new DataAccess();
 
@@ -37,7 +37,7 @@ $dao=new DataAccess();
             'status'=>'cancelled'
         );
         if($dao->update($data,'booking','id='.$_GET['bid'])){
-            echo "<script>location.replace('../pat/cancelconfirm.php')</script>";
+            echo "<script>location.replace('../user/cancelconfirm.php')</script>";
         }
       }
       if(isset($_POST['pay'])){

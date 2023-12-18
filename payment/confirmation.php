@@ -148,7 +148,7 @@
                                         <table border="0" cellspacing="0" cellpadding="0">
                                             <tr> 
                                                 <td align="center" style="border-radius: 20px;" bgcolor="#1977cc"><a
-                                                        href="../pat/mybooking.php" 
+                                                        href="../user/mybooking.php" 
                                                         style="border:none;font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px;  display: inline-block;">My Booking</a></td>
                                             </tr>
                                         </table>
@@ -183,7 +183,7 @@
                         <td bgcolor="#f4f4f4" align="left"
                             style="padding: 0px 0px 20px 0px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 18px;">
                             <br>
-                            <p style="margin: 0;">You can cancel the appointment -  <a href="../pat/mybooking.php"
+                            <p style="margin: 0;">You can cancel the appointment -  <a href="../user/mybooking.php"
                                      style="color: #111111; font-weight: 700;">Cancel</a>.</p>
                         </td>
                     </tr>
@@ -196,7 +196,7 @@
     const delay = 6000; // 3 seconds
 
 // Define the URL you want to redirect to
-const redirectUrl = "../pat/mybooking.php"; // Replace with your desired URL
+const redirectUrl = "../user/mybooking.php"; // Replace with your desired URL
 
 // Use setTimeout to delay the redirection
 setTimeout(function () {

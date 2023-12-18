@@ -3,7 +3,7 @@ require('../config/autoload.php');
 $a=$_SESSION['user_id'];
 if(!isset($a)){
 
-  header('Location: /project15/pat/login.php'); 
+  header('Location: /project15/user/login.php'); 
 }
 $dao=new DataAccess();
 
