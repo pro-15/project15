@@ -1,6 +1,6 @@
 <?php
 require('../config/autoload.php');
-require('../doctor/dashboards/dbcon.php');
+require('../doctor/dbcon.php');
 $n = $_SESSION['user_id'];
 $bid = $_GET['bid'];
 $data = $mysqli->query('SELECT
