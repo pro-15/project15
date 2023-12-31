@@ -56,8 +56,6 @@ JOIN record R ON B.id = R.bid where R.pid=".$pid." and B.status='consulted' ORDE
 
 if($info2->num_rows==0){
   
- 
-  
 }
 $info=array();
 while ($row = $info2->fetch_assoc()) {
