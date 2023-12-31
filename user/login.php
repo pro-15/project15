@@ -17,8 +17,8 @@ if (isset($_POST['login'])) {
 		if ($info = $dao->login($data, 'user')) {
 			$_SESSION['user_id'] = $info['id'];
 			$_SESSION['uname'] = $info['name'];
-			$_SESSION['settime'] = time();
-			$_SESSION['keep'] = (isset($_POST['keep']) && $_POST['keep'] === 'on') ? true : false;
+			$exp = (isset($_POST['keep']) && $_POST['keep'] === 'on') ? 1296000 : 3600;
+			$_SESSION['u_exp'] = time() + $exp;
 			header('Location: /project15/index.html');
 		} else echo "<script> alert('Invalid username or password');</script>";
 	}

@@ -3,6 +3,7 @@ require('../config/autoload.php');
 $dao = new DataAccess();
 if (!isset($_SESSION['doctor_id']))
 	header('location: login.php');
+
 if (isset($_SESSION['doctor_id'])) {
 	$fields3 = array('name', 'image');
 	$rec = $dao->getDataJoin($fields3, 'doctor', 'id=' . $_SESSION['doctor_id']);
@@ -43,24 +44,6 @@ if (isset($_SESSION['doctor_id'])) {
 
 <body>
 	<div class="container-scroller">
-		<!-- <div class="row p-0 m-0 proBanner" id="proBanner">
-        <div class="col-md-12 p-0 m-0">
-          <div class="card-body card-body-padding d-flex align-items-center justify-content-between">
-            <div class="ps-lg-1">
-              <div class="d-flex align-items-center justify-content-between">
-                <p class="mb-0 font-weight-medium me-3 buy-now-text">You have 20 appointments today!</p>
-              </div>
-            </div>
-            <div class="d-flex align-items-center justify-content-between">
-              <a href="https://www.bootstrapdash.com/product/plus-admin-template/"><i class="mdi mdi-home me-3 text-white"></i></a>
-              <button id="bannerClose" class="btn border-0 p-0">
-                <i class="mdi mdi-close text-white me-0"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div> -->
-		<!-- partial:partials/_sidebar.html -->
 		<nav class="sidebar sidebar-offcanvas" id="sidebar">
 			<ul class="nav">
 				<li class="nav-item nav-profile border-bottom">
@@ -110,19 +93,6 @@ if (isset($_SESSION['doctor_id'])) {
 						<i class="mdi mdi-library-books menu-icon"></i>
 						<span class="menu-title">Booking Tommorow</span>
 					</a>
-					<!-- <div class="collapse" id="ui-basic">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item">
-                  <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="pages/ui-features/typography.html">Typography</a>
-                </li>
-              </ul>
-            </div> -->
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="record.php">
@@ -137,25 +107,6 @@ if (isset($_SESSION['doctor_id'])) {
 						<span class="menu-title">Add Schedule</span>
 					</a>
 				</li>
-				<!-- <li class="nav-item">
-					<a class="nav-link" href="pages/charts/chartjs.html">
-						<i class="mdi mdi-chart-bar menu-icon"></i>
-						<span class="menu-title">Charts</span>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="pages/tables/basic-table.html">
-						<i class="mdi mdi-table-large menu-icon"></i>
-						<span class="menu-title">Tables</span>
-					</a>
-				</li>
-				<li class="nav-item pt-3">
-					<a class="nav-link" href="http://bootstrapdash.com/demo/plus-free/documentation/documentation.html" target="_blank">
-						<i class="mdi mdi-file-document-box menu-icon"></i>
-						<span class="menu-title">Documentation</span>
-					</a>
-				</li> -->
-			</ul>
 		</nav>
 		<!-- partial -->
 		<div class="container-fluid page-body-wrapper">
