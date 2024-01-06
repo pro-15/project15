@@ -3,7 +3,7 @@ require('../config/autoload.php');
 $dao = new DataAccess();
 $a = $_SESSION['user_id'];
 
-if (!isset($a)) header('Location: /project15/pat/login.php');
+if (!isset($a)) header('Location: /project15/user/login.php');
 $fields5 = array('id', 'status');
 $bookstat1 = $dao->getDataJoin($fields5, 'booking', 'user_id=' . $a . ' LIMIT 1');
 

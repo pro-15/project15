@@ -3,6 +3,8 @@ require('../config/autoload.php');
 $dao = new DataAccess();
 if (!isset($_SESSION['doctor_id']))
 	header('location: login.php');
+if (isset($_SESSION['doc_exp']) && time() > $_SESSION['doc_exp'])
+	header('location: '.BASE_URL.'doctor/logout.php');
 
 if (isset($_SESSION['doctor_id'])) {
 	$fields3 = array('name', 'image');

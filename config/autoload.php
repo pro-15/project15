@@ -8,8 +8,8 @@ date_default_timezone_set('asia/kolkata');
 
 session_start();
 
-if (isset($_SESSION['doc_exp']) && time() > $_SESSION['doc_exp'])
-	header('location: '.BASE_URL.'doctor/logout.php');
+// if (isset($_SESSION['doc_exp']) && time() > $_SESSION['doc_exp'])
+// 	header('location: '.BASE_URL.'doctor/logout.php');
 
 if (isset($_SESSION['u_exp']) && time() > $_SESSION['u_exp'])
    header('location: '.BASE_URL.'user/logout.php');

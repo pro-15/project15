@@ -60,7 +60,7 @@ if (isset($_POST['submit'])) {
 			"<script> alert('Scheduled successfully');</script> ";
 		} else
 			$msg = "insertion failed";
-		echo "<p style=color:green;>New User created successfully</p>";
+		echo "<p style=color:green;>Schedule added successfully</p>";
 	}
 }
 
