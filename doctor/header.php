@@ -142,7 +142,7 @@ if (isset($_SESSION['doctor_id'])) {
 						<span class="mdi mdi-chevron-double-left"></span>
 					</button>
 					<div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-						<a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
+						<a class="navbar-brand brand-logo-mini" href="index.php"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
 					</div>
 					<ul class="navbar-nav">
 						<li class="nav-item dropdown">
@@ -254,7 +254,7 @@ if (isset($_SESSION['doctor_id'])) {
 							</div>
 						</li>
 						<li class="nav-item nav-logout d-none d-lg-block">
-							<a class="nav-link" href="index.html">
+							<a class="nav-link" href="index.php">
 								<i class="mdi mdi-home-circle"></i>
 							</a>
 						</li>

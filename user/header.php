@@ -62,7 +62,7 @@
 	<header id="header" class="fixed-top">
 		<div class="container d-flex align-items-center">
 
-			<h1 class="logo me-auto"><a href="index.html">OneCare</a></h1>
+			<h1 class="logo me-auto"><a href="../index.html">OneCare</a></h1>
 			<!-- Uncomment below if you prefer to use an image logo -->
 			<!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -71,7 +71,7 @@
 					<li><a class="nav-link scrollto" href="../index.html#hero">Home</a></li>
 					<li><a class="nav-link scrollto" href="../index.html#about">About</a></li>
 					<li><a class="nav-link scrollto" href="departments.php#departments">Departments</a></li>
-					<li><a class="nav-link scrollto" href="../index.html#doctors">Doctors</a></li>
+					<li><a class="nav-link scrollto" href="doctors.php#doctors">Doctors</a></li>
 					<li><a class="nav-link scrollto" href="../index.html#contact">Contact</a></li>
 					<?php
 					if (isset($_SESSION['user_id'])) {

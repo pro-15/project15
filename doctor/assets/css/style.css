@@ -11931,7 +11931,7 @@ code {
     font-size: 13px; }
 
 .main-panel .content-wrapper .card-img {
-  background-image: url("../../images/bg_card.jpg");
+  background-image: url("../images/bg_card.jpg");
   background-size: cover; }
 
 .main-panel .content-wrapper .star-color {
@@ -11947,7 +11947,7 @@ code {
   font-size: 15px; }
 
 .main-panel .content-wrapper .card-stat {
-  background-image: url("../../images/dashboard/img_4.jpg");
+  background-image: url("../images/dashboard/img_4.jpg");
   background-size: cover; }
 
 .main-panel .content-wrapper .flot-bar-wrapper .flot-chart {
@@ -12072,7 +12072,7 @@ code {
   min-width: 124px;
   margin-left: 20px;
   height: 30px;
-  background: url("../../images/dashboard/hospital/arrow-down.svg") no-repeat 95% 50%;
+  background: url("../images/dashboard/hospital/arrow-down.svg") no-repeat 95% 50%;
   background-size: 13px 15px;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -12110,7 +12110,7 @@ code {
       margin-right: 10px; }
 
 .card.chat-with-doctor {
-  background: url("../../images/dashboard/hospital/img_call.png") #c9cef6 no-repeat 90% 100%; }
+  background: url("../images/dashboard/hospital/img_call.png") #c9cef6 no-repeat 90% 100%; }
 
 .search-form {
   position: relative; }
@@ -12174,7 +12174,7 @@ code {
 
 .filter-banner {
   width: 100%;
-  background: url("../../images/dashboard/ecommerce/filterbg.jpg") no-repeat;
+  background: url("../images/dashboard/ecommerce/filterbg.jpg") no-repeat;
   background-size: 100%;
   padding: 30px 50px; }
   @media (max-width: 576px) {
