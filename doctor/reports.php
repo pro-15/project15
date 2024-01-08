@@ -4,32 +4,36 @@ include('header.php');
 require('dbcon.php');
 
 $a = $_GET['uid'];
-$info2 = $mysqli->query("SELECT
-U.name AS user_name,
-U.dob AS dob,
-U.gender AS user_gender,
-U.email AS user_email,
-U.phone AS user_phone,
-B.id AS booking_id,
-B.appo_date,
-B.appo_time,
-B.status,
-D.name AS doctor_name,
-R.rid,
-R.did,
-R.pid,
-R.m_h,
-R.m_a,
-R.r_mp,
-R.v_s,
-R.lab_results,
-R.bid,
-R.summary,
-R.p_t
-FROM booking B
-JOIN user U ON B.user_id = U.id
-JOIN doctor D ON B.doctor_id = D.id
-JOIN record R ON B.id = R.bid where U.id=" . $a . " and B.status='consulted' ORDER BY R.rid DESC;");
+$info2 = $mysqli->query(
+	"SELECT
+	U.name AS user_name,
+	U.dob AS dob,
+	U.gender AS user_gender,
+	U.email AS user_email,
+	U.phone AS user_phone,
+	B.id AS booking_id,
+	B.appo_date,
+	B.appo_time,
+	B.status,
+	D.name AS doctor_name,
+	R.rid,
+	R.did,
+	R.pid,
+	R.m_h,
+	R.m_a,
+	R.r_mp,
+	R.v_s,
+	R.lab_results,
+	R.bid,
+	R.summary,
+	R.p_t
+	FROM booking B
+	JOIN user U ON B.user_id = U.id
+	JOIN doctor D ON B.doctor_id = D.id
+	JOIN record R ON B.id = R.bid 
+	WHERE U.id=" . $a . " AND B.status='consulted' 
+	ORDER BY R.rid DESC;"
+);
 ?>
 
 <?php
@@ -96,13 +100,13 @@ $phone = $info[0]['user_phone'];
 				<form method="POST">
 					<div class="d-flex justify-content-between px-3 row-col-12">
 						<a href="record.php" class="btn btn-primary"> Back </a>
-						<button class="btn btn-outline-primary bg-white">Records Available</button>
-						<button class="btn btn-outline-primary bg-white">Name: <?= $name ?></button>
-						<button class="btn btn-outline-primary bg-white">DOB: <?= $dob ?></button>
-						<button class="btn btn-outline-primary bg-white">Phone: <?= $phone ?></button>
-						<button class="btn btn-outline-primary bg-white">Email: <?= $em ?></button>
+						<button class="btn btn-outline-primary bg-white" onclick="return false;">Records Available</button>
+						<button class="btn btn-outline-primary bg-white" onclick="return false;">Name: <?= $name ?></button>
+						<button class="btn btn-outline-primary bg-white" onclick="return false;">DOB: <?= $dob ?></button>
+						<button class="btn btn-outline-primary bg-white" onclick="return false;">Phone: <?= $phone ?></button>
+						<button class="btn btn-outline-primary bg-white" onclick="return false;">Email: <?= $em ?></button>
 					</div>
-					<div class="row-col-12">
+					<div class="row-col-12 mt-4">
 						<div class="accordion">
 							<?php
 							foreach ($info as $key => $book) {
