@@ -25,7 +25,7 @@ if ($booking[0]['status'] != 'confirm')
 	echo "<script>location.replace('bookings.php')</script>";
 $pid = $booking[0]['user_id'];
 
-$info2 = $mysqli->query(
+$inf = $mysqli->query(
 	"SELECT
 	U.name AS user_name,
 	U.dob AS user_age,
@@ -47,8 +47,7 @@ $info2 = $mysqli->query(
 	R.lab_results,
 	R.bid,
 	R.summary,
-	R.p_t,
-	R.nextc
+	R.p_t
 	FROM booking B
 	JOIN user U ON B.user_id = U.id
 	JOIN doctor D ON B.doctor_id = D.id
@@ -57,9 +56,9 @@ $info2 = $mysqli->query(
 	ORDER BY R.rid DESC;"
 );
 
-if ($info2) {
-	if ($info2->num_rows == 0) $info = array();
-	while ($row = $info2->fetch_assoc()) {
+if ($inf) {
+	if ($inf->num_rows == 0) $info = array();
+	while ($row = $inf->fetch_assoc()) {
 		$info[] = $row;
 	}
 }
@@ -185,18 +184,10 @@ if (isset($_POST["insert"])) {
 <div class="row">
 	<div class="col-12 grid-margin">
 		<div class="card">
-			<div class="card-body">
+			<div class="card-body pe-5">
 				<h4 class="card-title mb-3">Consult</h4>
 				<form method="POST">
 					<div class="d-flex justify-content-between px-3 row-col-12">
-
-
-					<!-- <form method="POST">
-    <div class="content-wrapper pb-0">
-      <div class="page-header flex-wrap">
-        <div class="header-left"> -->
-
-
 						<button class="btn btn-outline-primary bg-white mb-2 mb-md-0" onclick="return false;">Bid: <?= $bid ?></button>
 						<button class="btn btn-outline-primary bg-white mb-2 mb-md-0" onclick="return false;">Name: <?= $name ?></button>
 						<button class="btn btn-outline-primary bg-white mb-2 mb-md-0" onclick="return false;">Age: <?= $age ?></button>
