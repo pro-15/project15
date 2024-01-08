@@ -3585,7 +3585,7 @@ progress {
   font-weight: 400;
   line-height: 1;
   color: #212529;
-  background-color: color(white);
+  background-color: #f7f8f9;
   background-clip: padding-box;
   border: 1px solid #ced4da;
   -webkit-appearance: none;
@@ -3614,7 +3614,7 @@ progress {
   .tt-query:focus,
   .tt-hint:focus {
     color: #212529;
-    background-color: #fff;
+    background-color: #f7f9fa;
     border-color: #86b7fe;
     outline: 0;
     -webkit-box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
@@ -13462,7 +13462,7 @@ code {
   .form-control:focus, .select2-container--default .select2-selection--single:focus, .select2-container--default .select2-selection--single .select2-search__field:focus, .typeahead:focus,
   .tt-query:focus,
   .tt-hint:focus {
-    background-color: #ffffff;
+    background-color: #f7f9fa;
     color: #000000;
     outline: none; }
 
