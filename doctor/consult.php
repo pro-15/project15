@@ -186,7 +186,7 @@ if (isset($_POST["insert"])) {
 		<div class="card">
 			<div class="card-body pe-5">
 				<h4 class="card-title mb-3">Consult</h4>
-				<form method="POST">
+				<form action="" method="POST" enctype="multipart/form-data">
 					<div class="d-flex justify-content-between px-3 row-col-12">
 						<button class="btn btn-outline-primary bg-white mb-2 mb-md-0" onclick="return false;">Bid: <?= $bid ?></button>
 						<button class="btn btn-outline-primary bg-white mb-2 mb-md-0" onclick="return false;">Name: <?= $name ?></button>
@@ -251,12 +251,12 @@ if (isset($_POST["insert"])) {
 					
 					<div class='row-col-12 mt-4'>
 						<div class="form-group">
-							<label for="exampleTextarea1">Medical History *</label>
-							<textarea class="form-control" name='m_h' id="exampleTextarea1" rows="4"></textarea>
+							<label for="m-h">Medical History *</label>
+							<textarea class="form-control" name='m_h' id="m-h" rows="4"></textarea>
 						</div>
 						<div class="form-group">
-							<label for="exampleTextarea1">Prescription and Treatment: *</label>
-							<textarea class="form-control" name='p_t' id="exampleTextarea1" rows="7"></textarea>
+							<label for="p-t">Prescription and Treatment: *</label>
+							<textarea class="form-control" name='p_t' id="p-tss" rows="7"></textarea>
 						</div>
 						<div class="form-group">
 							<label for="exampleTextarea1">Medications and Allergies: *</label>
