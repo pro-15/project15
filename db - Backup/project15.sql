@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 05, 2023 at 03:54 PM
+-- Generation Time: Jan 11, 2024 at 04:51 PM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `booking` (
   `slot` varchar(15) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=109 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=115 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `booking`
@@ -78,7 +78,13 @@ INSERT INTO `booking` (`id`, `doctor_id`, `user_id`, `booked_datetime`, `appo_da
 (105, 1, 1, '2023-11-02 14:43:29', '2023-11-02', '08:15', 'cancelled', 'm'),
 (106, 1, 1, '2023-11-04 01:20:39', '2023-11-04', '08:00', 'consulted', 'm'),
 (107, 1, 22, '2023-11-05 20:48:19', '2023-11-05', '09:00', 'consulted', 'm'),
-(108, 1, 22, '2023-11-05 20:48:51', '2023-11-05', '09:00', 'consulted', 'm');
+(108, 1, 22, '2023-11-05 20:48:51', '2023-11-05', '09:00', 'consulted', 'm'),
+(109, 8, 1, '2024-01-11 14:24:30', '2024-01-11', '10:00', 'consulted', 'm'),
+(110, 8, 1, '2024-01-11 15:52:54', '2024-01-11', '06:00', 'paymentpending', 'e'),
+(111, 8, 1, '2024-01-11 19:09:49', '2024-01-11', '11:30', 'paymentpending', 'm'),
+(112, 8, 1, '2024-01-11 21:26:47', '2024-01-11', '02:15', 'cancelled', 'e'),
+(113, 8, 1, '2024-01-11 21:28:10', '2024-01-11', '02:00', 'cancelled', 'e'),
+(114, 8, 1, '2024-01-11 21:31:07', '2024-01-11', '02:00', 'confirm', 'e');
 
 -- --------------------------------------------------------
 
@@ -139,17 +145,17 @@ CREATE TABLE IF NOT EXISTS `doctor` (
 --
 
 INSERT INTO `doctor` (`id`, `name`, `gender`, `department`, `qualification`, `address`, `image`, `phone`, `dob`, `description`, `fee`, `username`, `password`) VALUES
-(1, 'Dr Jacob Thomas E', 'se', '1', 'MBBS,Diploma & PG Diploma: D.C.H., Diploma in Newborn care, PG Diploma in Child Health', 'Ernakulam Kerala', 'e541f62abc7068517bb62d928a89cd5a_432df691efbe.jpg', '1234567812', '1984-11-08', 'Has 8 years of Experience post MD, with training in Paediatric Gastroenterology, Hepatology and Nutr', 300, 'jacob', '12345678'),
-(5, 'demo dfgdgdhdhdh', 'se', '1', 'MBBS,PG: M.D. Pediatrics, Master of Surgery in Pediatrics.', 'TEST', 'doctors-1.jpg', '9400673512', '1993-11-24', '', 0, '', ''),
-(6, 'Dr Deepak Choudhary', 'M', '6', 'DM, Neurology', 'ekm', '83ab9bc7795b67e5d94ca45c915bf476_637376c1e8bd8b68027.jpg', '1234567890', '1999-10-10', ' Dr. Deepak Choudhary is a highly respected neurologist known for his clinical expertise and researc', 300, 'deepak', '12345678'),
-(7, 'Dr Priya Patel', 'F', '1', 'MD Pediatric Medicine', 'Ekm', 'ed28cd69cebf12a350f74cd9ee6aea4c_42d06ae30a704213f76.jpg', '1234567890', '1996-10-10', 'Dr. Priya Patel is a dedicated pediatrician with more than 15 years of experience in caring for the ', 300, '', ''),
-(8, 'Dr Rajesh Verma', 'M', '2', 'MD Gastroenterology', 'ekm', 'cd232ac222a0a7a59eee68c018236229_c0e57f32a3f32e21825.jpg', '1234567890', '1965-10-10', 'Dr. Rajesh Verma is a highly skilled gastroenterologist with over 20 years of experience in diagnosi', 500, '', ''),
-(9, 'Dr Ananya Singh', 'F', '3', 'MD Anesthesiology', 'ekm', 'adb358bf102db23d8a956a2c7dd0018c_a61d62ec8e9d0a32.jpg', '1234567890', '1895-12-09', 'Dr. Ananya Singh is a board-certified anesthesiologist known for her precision and expertise in admi', 500, '', ''),
-(10, 'Dr Aditya Sharma', 'M', '4', 'MD Cardiology', 'ekm', '936dad63b96b70df17064fe0055893ed_e804cd6dedf1bb8b93e.jpg', '1234567890', '1990-09-15', ' Dr. Aditya Sharma is a renowned cardiologist with more than 25 years of experience in the diagnosis', 200, '', ''),
-(11, 'Dr Nandini Iye', 'F', '5', 'MS Otorhinolaryngology (ENT)', 'ekm', '75153e8ba73a3707f25d09bf08a8f37b_5bd729544bff39661a.jpg', '1234567890', '1980-10-10', 'Dr. Nandini Iyer is a skilled ENT specialist with extensive experience in treating ear, nose, and th', 200, '', ''),
-(12, 'Dr Arjun Khanna', 'M', '6', 'MD Neurology', 'ekm', 'fd2db27a77b5d5c2cfdb83a017425713_b41407aa20c57c958357.jpg', '1234567890', '1970-05-04', ' Dr. Arjun Khanna is a dedicated neurologist with a strong commitment to diagnosing and treating neu', 200, '', ''),
-(13, 'Dr Aparna Gupta', 'F', '7', 'MS Orthopedics', 'ekm', '4b233cdb0a14ebf0170a7bf28ca55c8d_af80417d079f36f559d2.jpg', '1234567890', '1985-01-05', 'Dr. Aparna Gupta is an experienced orthopedic surgeon specializing in musculoskeletal health. With 1', 200, '', ''),
-(14, 'Dr Sanjay Joshi', 'M', '8', 'MD, Psychiatry', 'ekm', '990d191bca22ae057e62d0816aa6c414_1b4bdc3304ad.jpg', '1234567890', '1989-10-10', 'Dr. Sanjay Joshi is a compassionate psychiatrist with over 20 years of experience in helping patient', 200, '', '');
+(1, 'Dr Jacob Thomas E', 'M', '1', 'MBBS, MD Pediatrics, D.C.H., DNB: Child Health', '1234 Medical Lane, Cityville', 'e541f62abc7068517bb62d928a89cd5a_432df691efbe.jpg', '9876543210', '1984-11-08', 'Experienced pediatrician with a focus on Gastroenterology, Hepatology, and Nutrition', 300, 'jacob', 'pass1234'),
+(5, 'Dr Gregory House', 'M', '1', 'MBBS, MD Pediatrics, MCh: Pediatric Surgery', '456 Test Street, Townsville', 'doctors-1.jpg', '9876543211', '1993-11-24', 'Pediatrician specializing in Pediatric Surgery', 0, 'demo', 'test5678'),
+(6, 'Dr Deepak Choudhary', 'M', '6', 'MBBS, MD Neurology, DM Neurology', '789 Neuro Lane, Brain City', '83ab9bc7795b67e5d94ca45c915bf476_637376c1e8bd8b68027.jpg', '9876543212', '1999-10-10', 'Respected neurologist with clinical expertise and research focus', 300, 'deepak', 'neuro123'),
+(7, 'Dr Priya Patel', 'F', '1', 'MBBS, MD Pediatric Medicine', '456 Pediatric Plaza, Child City', 'ed28cd69cebf12a350f74cd9ee6aea4c_42d06ae30a704213f76.jpg', '9876543213', '1996-10-10', 'Dedicated pediatrician with over 15 years of experience', 300, 'priya', 'kidcare12'),
+(8, 'Dr Rajesh Verma', 'M', '2', 'MBBS, MD Gastroenterology, DM Gastroenterology', '789 Gastro Lane, Digest City', 'cd232ac222a0a7a59eee68c018236229_c0e57f32a3f32e21825.jpg', '9876543214', '1965-10-10', 'Highly skilled gastroenterologist with 20+ years of experience', 500, 'rajesh', 'gastro123'),
+(9, 'Dr Ananya Singh', 'F', '3', 'MBBS, MD Anesthesiology', '789 Anesthesia Lane, Sedation City', 'adb358bf102db23d8a956a2c7dd0018c_a61d62ec8e9d0a32.jpg', '9876543215', '1895-12-09', 'Board-certified anesthesiologist known for precision and expertise', 500, 'ananya', 'sleepwell'),
+(10, 'Dr Aditya Sharma', 'M', '4', 'MBBS, MD Cardiology, DM Cardiology', '789 Heart Lane, Cardio City', '936dad63b96b70df17064fe0055893ed_e804cd6dedf1bb8b93e.jpg', '9876543216', '1990-09-15', 'Renowned cardiologist with over 25 years of experience', 200, 'aditya', 'heart456'),
+(11, 'Dr Nandini Iye', 'F', '5', 'MBBS, MS Otorhinolaryngology (ENT)', '789 Ear Nose Throat Lane, Hear City', '75153e8ba73a3707f25d09bf08a8f37b_5bd729544bff39661a.jpg', '9876543217', '1980-10-10', 'Skilled ENT specialist with extensive experience', 200, 'nandini', 'ent789'),
+(12, 'Dr Arjun Khanna', 'M', '6', 'MBBS, MD Neurology, DM Neurology', '789 Neuro Lane, Brain City', 'fd2db27a77b5d5c2cfdb83a017425713_b41407aa20c57c958357.jpg', '9876543218', '1970-05-04', 'Dedicated neurologist with a strong commitment to diagnosis and treatment', 200, 'arjun', 'neuro456'),
+(13, 'Dr Aparna Gupta', 'F', '7', 'MBBS, MS Orthopedics', '789 Ortho Lane, Bone City', '4b233cdb0a14ebf0170a7bf28ca55c8d_af80417d079f36f559d2.jpg', '9876543219', '1985-01-05', 'Experienced orthopedic surgeon specializing in musculoskeletal health', 200, 'aparna', 'ortho123'),
+(14, 'Dr Sanjay Joshi', 'M', '8', 'MBBS, MD Psychiatry', '789 Mind Lane, Mind City', '990d191bca22ae057e62d0816aa6c414_1b4bdc3304ad.jpg', '9876543220', '1989-10-10', 'Compassionate psychiatrist with over 20 years of experience', 200, 'sanjay', 'mind789');
 
 -- --------------------------------------------------------
 
@@ -164,7 +170,7 @@ CREATE TABLE IF NOT EXISTS `payment` (
   `amount` int NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `booking_id` (`booking_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `payment`
@@ -203,7 +209,11 @@ INSERT INTO `payment` (`id`, `booking_id`, `amount`) VALUES
 (38, 105, 300),
 (39, 106, 300),
 (40, 107, 300),
-(41, 108, 300);
+(41, 108, 300),
+(42, 109, 500),
+(43, 112, 500),
+(44, 113, 500),
+(45, 114, 500);
 
 -- --------------------------------------------------------
 
@@ -226,7 +236,7 @@ CREATE TABLE IF NOT EXISTS `record` (
   `p_t` varchar(300) NOT NULL,
   `nextc` date DEFAULT NULL,
   PRIMARY KEY (`rid`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `record`
@@ -242,7 +252,8 @@ INSERT INTO `record` (`rid`, `did`, `pid`, `m_h`, `m_a`, `r_mp`, `v_s`, `lab_res
 (9, 1, 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut a', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillu', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut a', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut a', 99, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillu', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillu', NULL),
 (11, 1, 1, 'gdgdg', 'gdg', 'fgfg', 'gfg', 'gfg', 106, 'gfg', 'dgdg', NULL),
 (12, 1, 22, 'fhfg', 'gfg', 'gfg', 'gfg', 'gfg', 107, 'gfgf', 'gfg', '2023-11-15'),
-(13, 1, 22, 'dfd', 'dfdfd', 'fd', 'fdf', 'dfd', 108, 'dfd', 'fdf', '2023-11-07');
+(13, 1, 22, 'dfd', 'dfdfd', 'fd', 'fdf', 'dfd', 108, 'dfd', 'fdf', '2023-11-07'),
+(14, 8, 1, 'Mild fever', 'Nill', 'Nill', 'Normal', 'Slight variation in WBC count', 109, 'Viral fever', 'Paracetamol IV - 100ml\nParacetamol Tablets 650mg - (1-1-1) 5 days', '2024-01-18');
 
 -- --------------------------------------------------------
 
@@ -260,7 +271,7 @@ CREATE TABLE IF NOT EXISTS `schedule` (
   `doctor_id` int NOT NULL,
   `date` date NOT NULL,
   PRIMARY KEY (`sid`)
-) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `schedule`
@@ -282,7 +293,8 @@ INSERT INTO `schedule` (`sid`, `m_start`, `m_end`, `e_start`, `e_end`, `doctor_i
 (19, '8:00', '12:00', '3:00', '6:00', 1, '2023-11-02'),
 (20, '8:00', '9:00', '3:00', '4:00', 1, '2023-11-03'),
 (21, '8:00', '10:00', '4:00', '7:00', 1, '2023-11-04'),
-(22, '9:00', '10:30', '3:00', '6:00', 1, '2023-11-05');
+(22, '9:00', '10:30', '3:00', '6:00', 1, '2023-11-05'),
+(23, '10:00', '12:00', '2:00', '6:00', 8, '2024-01-11');
 
 -- --------------------------------------------------------
 
@@ -308,13 +320,12 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `gender`, `dob`, `email`, `phone`, `password`) VALUES
-(1, 'Abhishek', 'M', '2013-11-06', 'abhi@gmail.com', '1234567891', '12345678'),
-(8, 'Ajith k s', 'M', '2004-11-10', 'ajith12@gmail.com', '1234567891', '12345678'),
-(9, 'Ajith k s', 'M', '2005-11-16', 'ajith123456@gmail.com', '1234567891', '12345678'),
-(10, 'Yaseen', 'F', '1996-11-06', 'yasee@gmail.com', '2134567890', '12345678'),
-(16, 'Jewel', 'M', '2003-11-12', 'kjjewelkj@gmail.com', '1234567890', '97661'),
-(18, 'Aswin', 'M', '2015-11-11', 'aswinrajeev@depaul.edu.in', '1234567890', '17486'),
-(22, 'ABHIDEV V S', 'M', '2000-07-12', 'vsabhidev12@gmail.com', '1234567890', '12345678');
+(1, 'John', 'M', '1995-03-15', 'john@example.com', '9876543210', 'john@123'),
+(8, 'Alice', 'F', '1988-07-22', 'alice@example.com', '9876543211', 'alice@123'),
+(10, 'David', 'M', '1990-11-03', 'david@example.com', '9876543212', 'david@123'),
+(16, 'Emma', 'F', '1998-05-20', 'emma@example.com', '9876543213', 'emma@123'),
+(18, 'Ryan', 'M', '1985-09-10', 'ryan@example.com', '9876543214', 'ryan@123'),
+(22, 'Sophy', 'F', '1992-12-18', 'sophia@example.com', '9876543215', 'sophy@123');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
