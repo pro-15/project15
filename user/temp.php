@@ -39,13 +39,6 @@ $pre = $wrappedString;
 $amt = "Rs." . $info[0]['amount'] . "/-";
 
 
-
-
-
-
-
-
-
 ?>
 
 
@@ -2379,7 +2372,7 @@ $amt = "Rs." . $info[0]['amount'] . "/-";
                     <div class="t m0 x0 h2 y19 ff1 fs0 fc0 sc0 ls6 ws9"> </div>
                     <div class="t m0 x0 h2 y1a ff1 fs0 fc0 sc0 ls6 ws9"> </div>
                     <div class="t m0 x0 h2 y1b ff1 fs0 fc0 sc0 ls6 ws9"> </div>
-                    <div class="t m0 x9 hd y1c ff3 fs6 fc0 sc0 ls6 ws5"><?= $pre ?><span class="_ _0"></span>ue<span class="ff1 fs2 ws9"> </span></div>
+                    <div class="t m0 x9 hd y1c ff3 fs6 fc0 sc0 ls6 ws5"><?= $pre ?><span class="_ _0"></span><span class="ff1 fs2 ws9"> </span></div>
                     <div class="t m0 x0 h2 y1d ff1 fs0 fc0 sc0 ls6 ws9"> </div>
                     <div class="t m0 x0 h2 y1e ff1 fs0 fc0 sc0 ls6 ws9"> </div>
                     <div class="t m0 x0 h2 y1f ff1 fs0 fc0 sc0 ls6 ws9"> </div>

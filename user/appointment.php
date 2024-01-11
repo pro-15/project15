@@ -1,6 +1,6 @@
 <?php
 require('../config/autoload.php');
-if(!isset($_SESSION['user_id'])) header('Location: /project15/pat/login.php');
+if(!isset($_SESSION['user_id'])) header('Location: /project15/user/login.php');
 $a = $_SESSION['user_id'];
 $dao=new DataAccess();
 if(isset($a)){
