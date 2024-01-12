@@ -93,7 +93,8 @@ if (isset($_SESSION['user_id'])) {
 							</div>
           				<h4>$name</h4>
           				<p>
-								Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi
+								Click here to view all the doctors in the department.
+								
 							</p>
         				</div>
 						</a>

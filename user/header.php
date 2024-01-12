@@ -72,7 +72,7 @@
 					<li><a class="nav-link scrollto" href="../index.html#about">About</a></li>
 					<li><a class="nav-link scrollto" href="departments.php#departments">Departments</a></li>
 					<li><a class="nav-link scrollto" href="doctors.php#doctors">Doctors</a></li>
-					<li><a class="nav-link scrollto" href="../index.html#contact">Contact</a></li>
+					<!-- <li><a class="nav-link scrollto" href="../index.html#contact">Contact</a></li> -->
 					<?php
 					if (isset($_SESSION['user_id'])) {
 						$fields3 = array('name');
@@ -83,19 +83,6 @@
 						</span> <i class=\"bi bi-person-circle\"></i></a>
 						<ul>
 						
-						
-						<li>
-							<a href='#'>
-								<span>Profile</span>
-								<i class='bi bi-person-vcard'></i>
-							</a>
-						</li>
-						<li>
-							<a href='#'>
-								<span>Wallet</span>
-								<i class='bi bi-wallet2'></i>
-							</a>
-						</li>
 						<li>
 							<a href='./mybooking.php'>
 								<span>My bookings</span>
